@@ -259,11 +259,11 @@ class SiteController extends Controller
             'address' => 'required|max:255',
             'details' => 'required',
             'birth_date' => 'required|date',
-            'last_donate' => 'required|date',
-            'facebook' => 'required',
-            'twitter' => 'required',
-            'linkedinIn' => 'required',
-            'instagram' => 'required',
+            // 'last_donate' => 'required|date',
+            // 'facebook' => 'required',
+            // 'twitter' => 'required',
+            // 'linkedinIn' => 'required',
+            // 'instagram' => 'required',
             'image' => ['required', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
         ]);
         $donor = new Donor();
