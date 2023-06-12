@@ -47,31 +47,31 @@
                     <div class="row mb-4">
                         <h5 class="mb-3">@lang('Socail Links')</h5>
                         <div class="form-group col-lg-3 col-sm-6">
-                            <label for="facebook">@lang('Facebook Url') <sup class="text--danger">*</sup></label>
+                            <label for="facebook">@lang('Facebook Url') <sup class="text--danger">(Optional)</sup></label>
                             <div class="custom-icon-field">
                                 <i class="lab la-facebook-f"></i>
-                                <input type="text" name="facebook" id="facebook" value="{{old('facebook')}}" placeholder="@lang('Enter Facebook Url')" class="form--control" required="">
+                                <input type="text" name="facebook" id="facebook" value="{{old('facebook')}}" placeholder="@lang('Enter Facebook Url')" class="form--control">
                             </div>
                         </div>
                         <div class="form-group col-lg-3 col-sm-6">
-                            <label for="twitter">@lang('Twitter Url') <sup class="text--danger">*</sup></label>
+                            <label for="twitter">@lang('Twitter Url') <sup class="text--danger">(Optional)</sup></label>
                             <div class="custom-icon-field">
                                 <i class="lab la-twitter"></i>
-                                <input type="text" name="twitter" id="twitter" value="{{old('twitter')}}" placeholder="@lang('Enter Twitter Url')" class="form--control" required="">
+                                <input type="text" name="twitter" id="twitter" value="{{old('twitter')}}" placeholder="@lang('Enter Twitter Url')" class="form--control">
                             </div>
                         </div>
                         <div class="form-group col-lg-3 col-sm-6">
-                            <label for="linkedinIn">@lang('Linkedin Url') <sup class="text--danger">*</sup></label>
+                            <label for="linkedinIn">@lang('Linkedin Url') <sup class="text--danger">(Optional)</sup></label>
                             <div class="custom-icon-field">
                                 <i class="lab la-linkedin-in"></i>
-                                <input type="text" name="linkedinIn" id="linkedinIn" value="{{old('linkedinIn')}}" placeholder="@lang('Enter Linkedin Url')" class="form--control" required="">
+                                <input type="text" name="linkedinIn" id="linkedinIn" value="{{old('linkedinIn')}}" placeholder="@lang('Enter Linkedin Url')" class="form--control">
                             </div>
                         </div>
                         <div class="form-group col-lg-3 col-sm-6">
-                            <label for="instagram">@lang('Instagram Url') <sup class="text--danger">*</sup></label>
+                            <label for="instagram">@lang('Instagram Url') <sup class="text--danger">(Optional)</sup></label>
                             <div class="custom-icon-field">
                                 <i class="lab la-instagram"></i>
-                                <input type="text" name="instagram" id="instagram" value="{{old('instagram')}}" placeholder="@lang('Enter Instagram Url')" class="form--control" required="">
+                                <input type="text" name="instagram" id="instagram" value="{{old('instagram')}}" placeholder="@lang('Enter Instagram Url')" class="form--control">
                             </div>
                         </div>
                     </div> 
@@ -99,8 +99,19 @@
 
                         <div class="form-group col-lg-6">
                             <label for="religion">@lang('Religion') <sup class="text--danger">*</sup></label>
-                            <input type="text" name="religion" id="religion" value="{{old('religion')}}" placeholder="@lang('Enter Religion')" class="form--control" maxlength="40" required="">
+                            <select name="religion" id="religion" class="select" required="">
+                                <option value="" selected="" disabled="">@lang('Select One')</option>
+                                <option value="Islam">@lang('Islam')</option>
+                                <option value="Hinduism">@lang('Hinduism')</option>
+                                <option value="Christianity">@lang('Christianity')</option>
+                                <option value="Buddhism">@lang('Buddhism')</option>
+                            </select>
                         </div>
+
+                        {{-- <div class="form-group col-lg-6">
+                            <label for="religion">@lang('Religion') <sup class="text--danger">*</sup></label>
+                            <input type="text" name="religion" id="religion" value="{{old('religion')}}" placeholder="@lang('Enter Religion')" class="form--control" maxlength="40" required="">
+                        </div> --}}
 
                          <div class="form-group col-lg-6">
                             <label for="profession">@lang('Profession') <sup class="text--danger">*</sup></label>
@@ -123,7 +134,7 @@
                         </div>
 
                          <div class="form-group col-lg-6">
-                            <label for="last_donate">@lang('Last Donate') <sup class="text--danger">*</sup></label>
+                            <label for="last_donate">@lang('Last Donate') <sup class="text--danger">(Optional)</sup></label>
                             <input type="text" name="last_donate" id="last_donate" value="{{old('donate')}}" data-language="en" placeholder="@lang('Last Blood Donate Date')" class="form--control datepicker-here">
                         </div>
 
