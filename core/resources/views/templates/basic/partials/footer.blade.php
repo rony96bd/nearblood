@@ -27,7 +27,7 @@
                     <div class="col-lg-9">
                         <ul class="footer-contact-list justify-content-lg-start justify-content-center">
                             <li>
-                                <div class="icon">
+                                <div class="icon" width: 50px>
                                     <i class="las la-phone-volume"></i>
                                 </div>
                                 <div class="content">
