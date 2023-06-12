@@ -3,7 +3,7 @@
     $testimonialElements = getContent('testimonial.element', false);
 @endphp
 
-<section class="pt-100 pb-100 bg_img dark--overlay overflow-hidden" style="background-image: url({{getImage('assets/images/frontend/testimonial/'. @$testimonial->data_values->background_image, '1920x1280')}});">
+{{-- <section class="pt-100 pb-100 bg_img dark--overlay overflow-hidden" style="background-image: url({{getImage('assets/images/frontend/testimonial/'. @$testimonial->data_values->background_image, '1920x1280')}});">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-5">
@@ -55,4 +55,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
