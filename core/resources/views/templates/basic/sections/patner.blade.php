@@ -3,7 +3,7 @@
     $patnerElements = getContent('patner.element', false);
 @endphp
 
-<section class="pt-100 pb-100 shade--bg2 overflow-hidden">
+{{-- <section class="pt-100 pb-100 shade--bg2 overflow-hidden">
     <div class="container border-bottom">
         <div class="row justify-content-center">
             <div class="col-lg-7">
@@ -26,7 +26,6 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
 
 
- 
