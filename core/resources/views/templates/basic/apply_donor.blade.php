@@ -74,7 +74,7 @@
                                 <input type="text" name="instagram" id="instagram" value="{{old('instagram')}}" placeholder="@lang('Enter Instagram Url')" class="form--control">
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
 
                     <div class="row">
@@ -152,7 +152,7 @@
     </div>
 </section>
 
-@include($activeTemplate.'sections.faq')
+{{-- @include($activeTemplate.'sections.faq') --}}
 
 @endsection
 
