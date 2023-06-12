@@ -90,10 +90,10 @@
                                 <h4 class="footer-overview__number">{{__($footer->data_values->first_count_digits)}}</h4>
                                 <p class="footer-overview__caption">{{__($footer->data_values->first_count_title)}}</p>
                             </li>
-                            <li class="footer-overview">
+                            {{-- <li class="footer-overview">
                                 <h4 class="footer-overview__number">{{__($footer->data_values->second_count_digits)}}</h4>
                                 <p class="footer-overview__caption">{{__($footer->data_values->second_count_title)}}</p>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
