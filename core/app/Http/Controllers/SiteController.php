@@ -118,7 +118,7 @@ class SiteController extends Controller
             'email' => $request->email,
             'message' => $request->message
         ]);
-        $notify[] = ['success', 'Request has been submitted'];
+        $notify[] = ['success', 'Send your message to donar'];
         return back()->withNotify($notify);
     }
 
@@ -167,7 +167,7 @@ class SiteController extends Controller
         $message->supportticket_id = $ticket->id;
         $message->message = $request->message;
         $message->save();
-        
+
         $notify[] = ['success', 'ticket created successfully!'];
         return redirect()->route('ticket.view', [$ticket->ticket])->withNotify($notify);
     }
