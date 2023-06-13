@@ -43,18 +43,18 @@ class SendSms
 	}
 
 	public function twilio($to,$fromName,$message,$credentials){
-		$account_sid = $credentials->account_sid;
-		$auth_token = $credentials->auth_token;
-		$twilio_number = $credentials->from;
+// 		$account_sid = $credentials->account_sid;
+// 		$auth_token = $credentials->auth_token;
+// 		$twilio_number = $credentials->from;
 
-		$client = new Client($account_sid, $auth_token);
-		$client->messages->create(
-		    '+'.$to,
-		    array(
-		        'from' => $twilio_number,
-		        'body' => $message
-		    )
-		);
+// 		$client = new Client($account_sid, $auth_token);
+// 		$client->messages->create(
+// 		    '+'.$to,
+// 		    array(
+// 		        'from' => $twilio_number,
+// 		        'body' => $message
+// 		    )
+// 		);
 	}
 
 	public function textMagic($to,$fromName,$message,$credentials){
