@@ -3,7 +3,7 @@
     $howItElements = getContent('how_it_work.element', false);
 @endphp
 
-<section class="pt-80 pb-80 dark--overlay bg_img" style="background-image: url('{{getImage('assets/images/frontend/how_it_work/'. @$howIt->data_values->background_image, '1920x1440')}}');">
+{{-- <section class="pt-80 pb-80 dark--overlay bg_img" style="background-image: url('{{getImage('assets/images/frontend/how_it_work/'. @$howIt->data_values->background_image, '1920x1440')}}');">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -26,4 +26,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
