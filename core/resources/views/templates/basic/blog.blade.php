@@ -1,18 +1,18 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="pt-100 pb-100">
+{{-- <section class="pt-100 pb-100">
     <div class="container">
         <div class="row">
             <div class="col-xl-2 col-lg-3 col-md-4 d-md-block d-none">
-               @php 
-                    echo advertisements('220x474') 
+               @php
+                    echo advertisements('220x474')
                 @endphp
-                @php 
-                    echo advertisements('220x474') 
+                @php
+                    echo advertisements('220x474')
                 @endphp
-                @php 
-                    echo advertisements('220x474') 
+                @php
+                    echo advertisements('220x474')
                 @endphp
             </div>
             <div class="col-xl-8 col-lg-9 col-md-8">
@@ -35,19 +35,19 @@
                 </div>
             </div>
             <div class="col-xl-2 d-xl-block d-none">
-                @php 
-                    echo advertisements('220x474') 
+                @php
+                    echo advertisements('220x474')
                 @endphp
-                @php 
-                    echo advertisements('220x474') 
+                @php
+                    echo advertisements('220x474')
                 @endphp
-                @php 
-                    echo advertisements('220x474') 
+                @php
+                    echo advertisements('220x474')
                 @endphp
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 @if($sections->secs != null)
     @foreach(json_decode($sections->secs) as $sec)
