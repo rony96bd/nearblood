@@ -202,9 +202,9 @@ class SiteController extends Controller
     }
 
     public function cookieAccept(){
-        session()->put('cookie_accepted',true);
-        $notify = 'Cookie accepted successfully';
-        return response()->json($notify);
+        // session()->put('cookie_accepted',true);
+        // $notify = 'Cookie accepted successfully';
+        // return response()->json($notify);
     }
 
     public function placeholderImage($size = null){
