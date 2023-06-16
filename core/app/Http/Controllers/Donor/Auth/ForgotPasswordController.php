@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Donor\Auth;
 
-use App\Models\Admin;
-use App\Models\AdminPasswordReset;
+use App\Models\Donor;
+use App\Models\DonorPasswordReset;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
@@ -62,13 +62,13 @@ class ForgotPasswordController extends Controller
             'email' => 'required|email',
         ]);
 
-        $user = Admin::where('email', $request->email)->first();
+        $user = Donor::where('email', $request->email)->first();
         if (!$user) {
             return back()->withErrors(['Email Not Available']);
         }
 
         $code = verificationCode(6);
-        $adminPasswordReset = new AdminPasswordReset();
+        $adminPasswordReset = new DonorPasswordReset();
         $adminPasswordReset->email = $user->email;
         $adminPasswordReset->token = $code;
         $adminPasswordReset->status = 0;

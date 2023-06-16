@@ -80,7 +80,7 @@ class ResetPasswordController extends Controller
         $user = Donor::where('email', $reset->email)->first();
         if ($reset->status == 1) {
             $notify[] = ['error', 'Invalid code'];
-            return redirect()->route('admin.login')->withNotify($notify);
+            return redirect()->route('donor.login')->withNotify($notify);
         }
 
         $user->password = bcrypt($request->password);
@@ -98,7 +98,7 @@ class ResetPasswordController extends Controller
         ]);
 
         $notify[] = ['success', 'Password changed'];
-        return redirect()->route('admin.login')->withNotify($notify);
+        return redirect()->route('donor.login')->withNotify($notify);
     }
 
     /**
@@ -108,7 +108,7 @@ class ResetPasswordController extends Controller
      */
     public function broker()
     {
-        return Password::broker('admins');
+        return Password::broker('donors');
     }
 
     /**
@@ -118,6 +118,6 @@ class ResetPasswordController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard('admin');
+        return Auth::guard('donor');
     }
 }
