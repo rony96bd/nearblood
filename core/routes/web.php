@@ -14,7 +14,7 @@ Route::prefix('ticket')->group(function () {
     Route::get('/download/{ticket}', 'TicketController@ticketDownload')->name('ticket.download');
 });
 
-Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function() {
+Route::namespace('Donor')->prefix('donor-login')->name('donor-login.')->group(function () {
     Route::namespace('Auth')->group(function () {
         Route::get('/', 'LoginController@showLoginForm')->name('login');
         Route::post('/', 'LoginController@login')->name('login');
@@ -186,10 +186,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     });
 });
 
-Route::get('/donor-list', 'SiteController@donor')->name('donor.list');
-Route::get('/donor-list/{slug}/{id}', 'SiteController@donorDetails')->name('donor.details');
-Route::get('/donor-list/search', 'SiteController@donorSearch')->name('donor.search');
-Route::post('/donor-list/contact', 'SiteController@contactWithDonor')->name('donor.contact');
+Route::get('/donor', 'SiteController@donor')->name('donor.list');
+Route::get('/donor/{slug}/{id}', 'SiteController@donorDetails')->name('donor.details');
+Route::get('/donor/search', 'SiteController@donorSearch')->name('donor.search');
+Route::post('/donor/contact', 'SiteController@contactWithDonor')->name('donor.contact');
 Route::get('/blood/donor/{slug}/{id}', 'SiteController@bloodGroup')->name('blood.group.donor');
 Route::get('/contact', 'SiteController@contact')->name('contact');
 Route::post('/contact', 'SiteController@contactSubmit');
