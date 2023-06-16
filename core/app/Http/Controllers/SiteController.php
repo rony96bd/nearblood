@@ -15,6 +15,7 @@ use App\Models\SupportMessage;
 use App\Models\SupportTicket;
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use Illuminate\Http\Request;
 
@@ -247,7 +248,9 @@ class SiteController extends Controller
     {
         $request->validate([
             'name' => 'required|max:80',
+            'username' => 'required|alpha_dash|unique:donors,username',
             'email' => 'required|email|max:60|unique:donors,email',
+            'password' => 'required|confirmed|min:6',
             'phone' => 'required|max:40|unique:donors,phone',
             'city' => 'required|exists:cities,id',
             'location' => 'required|exists:locations,id',
@@ -268,7 +271,9 @@ class SiteController extends Controller
         ]);
         $donor = new Donor();
         $donor->name = $request->name;
+        $donor->username = $request->username;
         $donor->email = $request->email;
+        $donor->password = Hash::make($request->password);
         $donor->phone = $request->phone;
         $donor->city_id = $request->city;
         $donor->blood_id = $request->blood;

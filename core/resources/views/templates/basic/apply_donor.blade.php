@@ -14,8 +14,22 @@
                             <input type="text" name="name" id="name" value="{{old('name')}}" placeholder="@lang('Full name')" class="form--control" maxlength="80" required="">
                         </div>
                         <div class="form-group col-lg-6">
+                            <label for="username">@lang('Username') <sup class="text--danger">*</sup></label>
+                            <input type="text" name="username" id="username" value="{{old('username')}}" placeholder="@lang('User name')" class="form--control" maxlength="40" required="">
+                        </div>
+                        <div class="form-group col-lg-6">
                             <label for="email">@lang('Email') <sup class="text--danger">*</sup></label>
                             <input type="email" name="email" id="email" value="{{old('email')}}" placeholder="@lang('Enter Email')" class="form--control" maxlength="60" required="">
+                        </div>
+                        <!--password-->
+                        <div class="form-group col-lg-6">
+                            <label for="password">@lang('Password') <sup class="text--danger">*</sup></label>
+                            <input type="password" name="password" id="password" value="{{old('password')}}" placeholder="@lang('Enter Password')" class="form--control" maxlength="60" required="">
+                        </div>
+                        <!--confirm password -->
+                        <div class="form-group col-lg-6">
+                            <label for="password_confirmation">@lang('Confirm Password') <sup class="text--danger">*</sup></label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" value="{{old('password_confirmation')}}" placeholder="@lang('Enter Confirm Password')" class="form--control" maxlength="60" required="">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="phone">@lang('Phone') <sup class="text--danger">*</sup></label>
@@ -36,7 +50,7 @@
                                 <option value="" selected="" disabled="">@lang('Select One')</option>
                             </select>
                         </div>
-                        <div class="form-group col-lg-6">
+                        <div class="form-group col-lg-12">
                             <label for="address">@lang('Address') <sup class="text--danger">*</sup></label>
                             <input type="text" name="address" id="address" value="{{old('address')}}" placeholder="@lang('Enter Address')" class="form--control" maxlength="255" required="">
                         </div>
@@ -130,12 +144,12 @@
 
                         <div class="form-group col-lg-6">
                             <label for="date_birth">@lang('Date Of Birth') <sup class="text--danger">*</sup></label>
-                            <input type="text" id="date_birth" name="birth_date" value="{{old('birth_date')}}" data-language="en" placeholder="@lang('Enter Date Of Birth')" class="form--control datepicker-here" maxlength="255" required="">
+                            <input type="date" id="date_birth" name="birth_date" value="{{old('birth_date')}}" data-language="en" placeholder="@lang('Enter Date Of Birth')" class="form--control datepicker-here" maxlength="255" required="">
                         </div>
 
                          <div class="form-group col-lg-6">
                             <label for="last_donate">@lang('Last Donate') <sup class="text--danger">(Optional)</sup></label>
-                            <input type="text" name="last_donate" id="last_donate" value="{{old('donate')}}" data-language="en" placeholder="@lang('Last Blood Donate Date')" class="form--control datepicker-here">
+                            <input type="date" name="last_donate" id="last_donate" value="{{old('donate')}}" data-language="en" placeholder="@lang('Last Blood Donate Date')" class="form--control datepicker-here">
                         </div>
 
                         <div class="form-group col-lg-12">

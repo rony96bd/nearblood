@@ -14,6 +14,19 @@ Route::prefix('ticket')->group(function () {
     Route::get('/download/{ticket}', 'TicketController@ticketDownload')->name('ticket.download');
 });
 
+Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function() {
+    Route::namespace('Auth')->group(function () {
+        Route::get('/', 'LoginController@showLoginForm')->name('login');
+        Route::post('/', 'LoginController@login')->name('login');
+        Route::get('logout', 'LoginController@logout')->name('logout');
+        // Admin Password Reset
+        Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+        Route::post('password/reset', 'ForgotPasswordController@sendResetCodeEmail');
+        Route::post('password/verify-code', 'ForgotPasswordController@verifyCode')->name('password.verify.code');
+        Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
+        Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
+    });
+});
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::namespace('Auth')->group(function () {
@@ -173,10 +186,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     });
 });
 
-Route::get('/donor', 'SiteController@donor')->name('donor');
-Route::get('/donor/{slug}/{id}', 'SiteController@donorDetails')->name('donor.details');
-Route::get('/donor/search', 'SiteController@donorSearch')->name('donor.search');
-Route::post('/donor/contact', 'SiteController@contactWithDonor')->name('donor.contact');
+Route::get('/donor-list', 'SiteController@donor')->name('donor.list');
+Route::get('/donor-list/{slug}/{id}', 'SiteController@donorDetails')->name('donor.details');
+Route::get('/donor-list/search', 'SiteController@donorSearch')->name('donor.search');
+Route::post('/donor-list/contact', 'SiteController@contactWithDonor')->name('donor.contact');
 Route::get('/blood/donor/{slug}/{id}', 'SiteController@bloodGroup')->name('blood.group.donor');
 Route::get('/contact', 'SiteController@contact')->name('contact');
 Route::post('/contact', 'SiteController@contactSubmit');
@@ -195,4 +208,4 @@ Route::post('/subscribe', 'SiteController@subscribe')->name('subscribe');
 
 // Route::get('posts',[SiteController::class,'index'])-name('posts.index');
 
-Route::get('login/donor', [DonorLoginController::class, 'donorLogin'])->name('donor.login');
+//Route::get('login/donor', [DonorLoginController::class, 'donorLogin'])->name('donor.login');

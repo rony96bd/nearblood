@@ -4,9 +4,14 @@ namespace App\Models;
 
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Admin extends Authenticatable
 {
+    use notifiable;
+
+    protected $guard = 'admin';
+
     /**
      * The attributes that are mass assignable.
      *

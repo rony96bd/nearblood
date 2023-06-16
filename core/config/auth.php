@@ -46,10 +46,15 @@ return [
             'provider' => 'users',
             'hash' => true,
         ],
-        
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
+        ],
+
+        'donor' => [
+            'driver' => 'session',
+            'provider' => 'donors',
         ],
     ],
 
@@ -79,6 +84,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+
+        'donors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Donor::class,
         ],
 
         // 'users' => [
@@ -112,6 +122,11 @@ return [
         'admins' => [
             'provider' => 'admins',
             'table' => 'admin_password_resets',
+            'expire' => 60,
+        ],
+        'donors' => [
+            'provider' => 'donors',
+            'table' => 'donor_password_resets',
             'expire' => 60,
         ],
     ],
