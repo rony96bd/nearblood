@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DonorLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/clear', function(){
@@ -35,7 +36,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('password', 'AdminController@passwordUpdate')->name('password.update');
 
         //Blood
-        Route::get('blood/list', 'BloodController@index')->name('blood.index'); 
+        Route::get('blood/list', 'BloodController@index')->name('blood.index');
         Route::post('blood/store', 'BloodController@store')->name('blood.store');
         Route::post('blood/update', 'BloodController@update')->name('blood.update');
 
@@ -193,3 +194,5 @@ Route::get('/add/{id}', 'SiteController@adclicked')->name('add.clicked');
 Route::post('/subscribe', 'SiteController@subscribe')->name('subscribe');
 
 // Route::get('posts',[SiteController::class,'index'])-name('posts.index');
+
+Route::get('login/donor', [DonorLoginController::class, 'donorLogin'])->name('donor.login');
