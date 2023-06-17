@@ -107,7 +107,7 @@ class LoginController extends Controller
     {
         $this->guard('donor')->logout();
         $request->session()->invalidate();
-        return $this->loggedOut($request) ?: redirect('/donor/login');
+        return $this->loggedOut($request) ?: redirect('/donor');
     }
 
     public function resetPassword()
