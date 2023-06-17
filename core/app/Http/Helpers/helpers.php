@@ -10,7 +10,6 @@ use App\Models\GeneralSetting;
 use App\Models\SmsTemplate;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
-use Intervention\Image\Facades\Image;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -36,7 +35,7 @@ function sidebarVariation(){
 
 function systemDetails()
 {
-    $system['name'] = 'nearblood';
+    $system['name'] = 'bloodlab';
     $system['version'] = '1.0';
     return $system;
 }
@@ -93,7 +92,6 @@ function getNumber($length = 8)
 //moveable
 function uploadImage($file, $location, $size = null, $old = null, $thumb = null)
 {
-    return "test.jpg";
     $path = makeDirectory($location);
     if (!$path) throw new Exception('File could not been created.');
 

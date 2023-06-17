@@ -122,11 +122,6 @@
                             </select>
                         </div>
 
-                        {{-- <div class="form-group col-lg-6">
-                            <label for="religion">@lang('Religion') <sup class="text--danger">*</sup></label>
-                            <input type="text" name="religion" id="religion" value="{{old('religion')}}" placeholder="@lang('Enter Religion')" class="form--control" maxlength="40" required="">
-                        </div> --}}
-
                          <div class="form-group col-lg-6">
                             <label for="profession">@lang('Profession') <sup class="text--danger">*</sup></label>
                             <input type="text" name="profession" id="profession" value="{{old('profession')}}" placeholder="@lang('Enter Profession')" class="form--control" maxlength="80" required="">

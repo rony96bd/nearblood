@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\DonorLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/clear', function(){
@@ -14,9 +13,9 @@ Route::prefix('ticket')->group(function () {
     Route::get('/download/{ticket}', 'TicketController@ticketDownload')->name('ticket.download');
 });
 
-Route::namespace('Donor')->prefix('donor-login')->name('donor-login.')->group(function () {
+Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
     Route::namespace('Auth')->group(function () {
-        Route::get('/', 'LoginController@showLoginForm')->name('login');
+        Route::get('login', 'LoginController@showLoginForm')->name('donor.login');
         Route::post('/', 'LoginController@login')->name('login');
         Route::get('logout', 'LoginController@logout')->name('logout');
         // Admin Password Reset
@@ -25,6 +24,15 @@ Route::namespace('Donor')->prefix('donor-login')->name('donor-login.')->group(fu
         Route::post('password/verify-code', 'ForgotPasswordController@verifyCode')->name('password.verify.code');
         Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
         Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
+    });
+    Route::middleware('donor')->group(function () {
+        Route::get('dashboard', 'DonorController@dashboard')->name('dashboard');
+        Route::get('profile', 'DonorController@profile')->name('profile');
+        Route::post('profile', 'DonorController@profileUpdate')->name('profile.update');
+        Route::get('password', 'DonorController@password')->name('password');
+        Route::post('password', 'DonorController@passwordUpdate')->name('password.update');
+
+        Route::get('donor/list', 'ManageDonorController@index')->name('donor.index');
     });
 });
 
@@ -206,6 +214,4 @@ Route::get('/menu/{slug}/{id}', 'SiteController@footerMenu')->name('footer.menu'
 Route::get('/add/{id}', 'SiteController@adclicked')->name('add.clicked');
 Route::post('/subscribe', 'SiteController@subscribe')->name('subscribe');
 
-// Route::get('posts',[SiteController::class,'index'])-name('posts.index');
 
-//Route::get('login/donor', [DonorLoginController::class, 'donorLogin'])->name('donor.login');

@@ -5,7 +5,7 @@
             <div class="form-wrapper">
                 <h4 class="logo-text mb-15">@lang('Welcome to') <strong>{{__($general->sitename)}}</strong></h4>
                 <p>{{__($pageTitle)}} @lang('to')  {{__($general->sitename)}} @lang('dashboard')</p>
-                <form action="{{ route('donor-login.login') }}" method="POST" class="cmn-form mt-30">
+                <form action="{{ route('donor.login') }}" method="POST" class="cmn-form mt-30">
                     @csrf
                     <div class="form-group">
                         <label for="email">@lang('Username')</label>
@@ -18,7 +18,7 @@
                         <i class="las la-lock input-icon"></i>
                     </div>
                     <div class="form-group d-flex justify-content-between align-items-center">
-                        <a href="{{ route('donor-login.password.reset') }}" class="text-muted text--small"><i class="las la-lock"></i>@lang('Forgot password?')</a>
+                        <a href="{{ route('donor.password.reset') }}" class="text-muted text--small"><i class="las la-lock"></i>@lang('Forgot password?')</a>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="submit-btn mt-25 b-radius--capsule">@lang('Login') <i class="las la-sign-in-alt"></i></button>
