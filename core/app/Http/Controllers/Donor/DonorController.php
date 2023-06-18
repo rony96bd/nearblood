@@ -37,23 +37,25 @@ class DonorController extends Controller
     public function profile()
     {
         $pageTitle = 'Profile';
-        $admin = Auth::guard('admin')->user();
-        return view('admin.profile', compact('pageTitle', 'admin'));
+        $donor = Auth::guard('donor')->user();
+        return view('donor.profile', compact('pageTitle', 'donor'));
     }
 
     public function profileUpdate(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email',
             'image' => ['nullable', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])]
         ]);
-        $user = Auth::guard('admin')->user();
+        $user = Auth::guard('donor')->user();
 
         if ($request->hasFile('image')) {
+
             try {
                 $old = $user->image ?: null;
-                $user->image = uploadImage($request->image, imagePath()['profile']['admin']['path'], imagePath()['profile']['admin']['size'], $old);
+                $path = imagePath()['donor']['path'];
+                $size = imagePath()['donor']['size'];
+                $user->image = uploadImage($request->image, $path, $size, $old);
             } catch (\Exception $exp) {
                 $notify[] = ['error', 'Image could not be uploaded.'];
                 return back()->withNotify($notify);
@@ -61,18 +63,17 @@ class DonorController extends Controller
         }
 
         $user->name = $request->name;
-        $user->email = $request->email;
         $user->save();
         $notify[] = ['success', 'Your profile has been updated.'];
-        return redirect()->route('admin.profile')->withNotify($notify);
+        return redirect()->route('donor.profile')->withNotify($notify);
     }
 
 
     public function password()
     {
         $pageTitle = 'Password Setting';
-        $admin = Auth::guard('admin')->user();
-        return view('admin.password', compact('pageTitle', 'admin'));
+        $admin = Auth::guard('donor')->user();
+        return view('donor.password', compact('pageTitle', 'admin'));
     }
 
     public function passwordUpdate(Request $request)
@@ -82,7 +83,7 @@ class DonorController extends Controller
             'password' => 'required|min:5|confirmed',
         ]);
 
-        $user = Auth::guard('admin')->user();
+        $user = Auth::guard('donor')->user();
         if (!Hash::check($request->old_password, $user->password)) {
             $notify[] = ['error', 'Password do not match !!'];
             return back()->withNotify($notify);
@@ -90,7 +91,7 @@ class DonorController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         $notify[] = ['success', 'Password changed successfully.'];
-        return redirect()->route('admin.password')->withNotify($notify);
+        return redirect()->route('donor.password')->withNotify($notify);
     }
 
     public function requestReport()
@@ -102,10 +103,10 @@ class DonorController extends Controller
         $url = "https://license.viserlab.com/issue/get?" . http_build_query($arr);
         $response = json_decode(curlContent($url));
         if ($response->status == 'error') {
-            return redirect()->route('admin.dashboard')->withErrors($response->message);
+            return redirect()->route('donor.dashboard')->withErrors($response->message);
         }
         $reports = $response->message[0];
-        return view('admin.reports', compact('reports', 'pageTitle'));
+        return view('donor.reports', compact('reports', 'pageTitle'));
     }
 
     public function reportSubmit(Request $request)
@@ -136,6 +137,6 @@ class DonorController extends Controller
         $currentPHP = phpversion();
         $timeZone = config('app.timezone');
         $pageTitle = 'System Information';
-        return view('admin.info', compact('pageTitle', 'currentPHP', 'laravelVersion', 'serverDetails', 'timeZone'));
+        return view('donor.info', compact('pageTitle', 'currentPHP', 'laravelVersion', 'serverDetails', 'timeZone'));
     }
 }

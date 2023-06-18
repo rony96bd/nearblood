@@ -105,6 +105,7 @@ function uploadImage($file, $location, $size = null, $old = null, $thumb = null)
         $size = explode('x', strtolower($size));
         $image->resize($size[0], $size[1]);
     }
+
     $image->save($location . '/' . $filename);
 
     if ($thumb) {

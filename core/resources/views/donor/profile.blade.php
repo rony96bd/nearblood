@@ -9,7 +9,7 @@
                 <div class="card-body p-0">
                     <div class="d-flex p-3 bg--primary align-items-center">
                         <div class="avatar avatar--lg">
-                            <img src="{{getImage('assets/images/donor/'. $donor->image, imagePath()['donor']['size'])}}" alt="@lang('Image')">
+                            <img src="{{getImage('assets/images/donor/'. $donor->image ?? "", imagePath()['donor']['size'])}}" alt="@lang('Image')">
                         </div>
                         <div class="pl-3">
                             <h4 class="text--white">{{__($donor->name)}}</h4>

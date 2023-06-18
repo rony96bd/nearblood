@@ -287,10 +287,10 @@ class SiteController extends Controller
         $donor->birth_date =  $request->birth_date;
         $donor->last_donate = $request->last_donate;
         $socialMedia = [
-            'facebook' => $request->facebook,
-            'twitter' => $request->twitter,
-            'linkedinIn' => $request->linkedinIn,
-            'instagram' => $request->instagram
+            'facebook' => $request->facebook ?? "",
+            'twitter' => $request->twitter ?? "",
+            'linkedinIn' => $request->linkedinIn ?? "",
+            'instagram' => $request->instagram ?? "",
         ];
         $donor->socialMedia = $socialMedia;
         $path = imagePath()['donor']['path'];
