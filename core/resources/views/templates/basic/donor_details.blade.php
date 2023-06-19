@@ -34,7 +34,7 @@
 				</div>
 				<div class="col-xl-3 col-lg-4 mt-lg-0 mt-3">
 					<div class="dono-info-item d-flex align-items-center justify-content-center">
-						<h5 class="text-white me-3"><i class="las la-calendar-check"></i> @lang('Last Donate') : </h5>
+						<h5 class="text-white me-2"><i class="las la-calendar-check"></i> @lang('Last Donate') : </h5>
 						<p class="text--base">{{showDateTime($donor->last_donate, 'd M Y')}}</p>
 					</div>
 				</div>
@@ -56,8 +56,8 @@
 				<h3>@lang('Donor Details')</h3>
 				<p class="mt-2">{{__($donor->details)}}</p>
 				<div class="mt-4">
-					@php 
-	                    echo advertisements('820x213') 
+					@php
+	                    echo advertisements('820x213')
 	                @endphp
 				</div>
 				<ul class="caption-list-two mt-4">
@@ -93,7 +93,7 @@
 						<span class="caption">@lang('Profession')</span>
 						<span class="value">{{__($donor->profession)}}</span>
 					</li>
-					
+
 					<li>
 						<span class="caption">@lang('Address')</span>
 						<span class="value">{{__($donor->address)}}</span>
@@ -101,11 +101,11 @@
 				</ul>
 
 				<div class="mt-4">
-					@php 
-	                    echo advertisements('820x213') 
+					@php
+	                    echo advertisements('820x213')
 	                @endphp
 				</div>
-	         
+
 			</div>
 			<div class="col-lg-4">
 				<div class="custom--card section--bg2">
@@ -130,8 +130,8 @@
 					</div>
 				</div>
 				 <div class="mt-4">
-				 	@php 
-	                    echo advertisements('416x554') 
+				 	@php
+	                    echo advertisements('416x554')
 	                @endphp
 				 </div>
 			</div>
