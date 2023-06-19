@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-dark">@lang('What is the Update ?')</h5>
-                        <p><pre  class="f-size--24">{{json_decode($general->sys_version)->details}}</pre></p>
+                        <pre class="f-size--24">{{json_decode($general->sys_version)->details}}</pre>
                     </div>
                 </div>
             </div>
