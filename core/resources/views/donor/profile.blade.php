@@ -203,7 +203,7 @@
                                     <label for="donate" class="font-weight-bold">@lang('Total Donate')</label>
                                     <input type="text" id="donate" name="donate"
                                         value="{{ $donor->total_donate }}" class="form-control form-control-lg"
-                                        placeholder="@lang('Enter Total Blood Donate')" required="">
+                                        placeholder="@lang('Enter Total Blood Donate')">
                                 </div>
                             </div>
                         </div>

@@ -14,7 +14,7 @@
                                     <th>@lang('Religion - Address')</th>
                                     <th>@lang('Gender - Age')</th>
                                     <th>@lang('Featured Donor')</th>
-                                    <th>@lang('Status')</th>
+                                    <th>@lang('Username - Status')</th>
                                     <th>@lang('Last Update')</th>
                                     <th>@lang('Action')</th>
                                 </tr>
@@ -58,7 +58,8 @@
                                         @endif
                                     </td>
 
-                                    <td data-label="@lang('Status')">
+                                    <td data-label="@lang('Username - Status')">
+                                        <span>{{ __($donor->username) }}</span><br>
                                         @if($donor->status == 1)
                                             <span class="badge badge--success">@lang('Active')</span>
                                         @elseif($donor->status == 2)
@@ -74,12 +75,12 @@
 
                                     <td data-label="@lang('Action')">
                                         @if($donor->status == 2)
-                                            <a href="javascript:void(0)" class="icon-btn btn--success ml-1 approved" data-toggle="tooltip" data-original-title="@lang('Approve')" data-id="{{$donor->id}}"><i class="las la-check"></i></a> 
+                                            <a href="javascript:void(0)" class="icon-btn btn--success ml-1 approved" data-toggle="tooltip" data-original-title="@lang('Approve')" data-id="{{$donor->id}}"><i class="las la-check"></i></a>
                                         @elseif($donor->status == 1)
-                                            <a href="javascript:void(0)" class="icon-btn btn--danger ml-1 cancel" data-toggle="tooltip" data-original-title="@lang('Banned')" data-id="{{$donor->id}}"><i class="las la-times"></i></a> 
+                                            <a href="javascript:void(0)" class="icon-btn btn--danger ml-1 cancel" data-toggle="tooltip" data-original-title="@lang('Banned')" data-id="{{$donor->id}}"><i class="las la-times"></i></a>
                                         @elseif($donor->status == 0)
-                                            <a href="javascript:void(0)" class="icon-btn btn--success ml-1 approved" data-toggle="tooltip" data-original-title="@lang('Approve')" data-id="{{$donor->id}}"><i class="las la-check"></i></a> 
-                                            <a href="javascript:void(0)" class="icon-btn btn--danger ml-1 cancel" data-toggle="tooltip" data-original-title="@lang('Banned')" data-id="{{$donor->id}}"><i class="las la-times"></i></a> 
+                                            <a href="javascript:void(0)" class="icon-btn btn--success ml-1 approved" data-toggle="tooltip" data-original-title="@lang('Approve')" data-id="{{$donor->id}}"><i class="las la-check"></i></a>
+                                            <a href="javascript:void(0)" class="icon-btn btn--danger ml-1 cancel" data-toggle="tooltip" data-original-title="@lang('Banned')" data-id="{{$donor->id}}"><i class="las la-times"></i></a>
                                         @endif
                                         <a href="{{route('admin.donor.edit', $donor->id)}}" class="icon-btn btn--primary ml-1"><i class="las la-pen"></i></a>
                                     </td>
@@ -111,7 +112,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            
+
             <form action="{{route('admin.donor.approved.status')}}" method="POST">
                 @csrf
                 @method('POST')
@@ -138,7 +139,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            
+
             <form action="{{ route('admin.donor.banned.status') }}" method="POST">
                 @csrf
                 @method('POST')
@@ -226,9 +227,9 @@
     <form action="{{route('admin.donor.blood.search')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
         <div class="input-group has_append">
             <select class="form-control" name="blood_id">
-                <option>----@lang('Select Blood')----</option> 
+                <option>----@lang('Select Blood')----</option>
                 @foreach($bloods as $blood)
-                    <option value="{{$blood->id}}" @if(@$bloodId == $blood->id) selected @endif>{{__($blood->name)}}</option> 
+                    <option value="{{$blood->id}}" @if(@$bloodId == $blood->id) selected @endif>{{__($blood->name)}}</option>
                 @endforeach
            </select>
             <div class="input-group-append">

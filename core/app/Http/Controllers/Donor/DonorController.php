@@ -59,7 +59,7 @@ class DonorController extends Controller
             'profession' => 'required|max:80',
             'religion' => 'required|max:40',
             'address' => 'required|max:255',
-            'donate' => 'required|integer',
+            // 'donate' => 'required|integer',
             'birth_date' => 'required|date',
             // 'last_donate' => 'required|date',
             'details' => 'required',
