@@ -30,9 +30,9 @@ class DonorController extends Controller
         $don['approved'] = Donor::where('status', 1)->count();
         $don['banned'] = Donor::where('status', 0)->count();
         $donors = Donor::orderBy('id', 'DESC')->with('blood', 'location')->limit(8)->get();
-        return view('donor.dashboard', compact('pageTitle', 'don', 'blood', 'city', 'locations', 'ads', 'donors'));
+        $donor = Auth::guard('donor')->user();
+        return view('donor.dashboard', compact('pageTitle', 'don', 'blood', 'city', 'locations', 'ads', 'donors', 'donor'));
     }
-
 
     public function profile()
     {
@@ -45,6 +45,7 @@ class DonorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'phone' => 'required',
             'image' => ['nullable', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])]
         ]);
         $user = Auth::guard('donor')->user();
@@ -63,6 +64,7 @@ class DonorController extends Controller
         }
 
         $user->name = $request->name;
+        $user->phone = $request->phone;
         $user->save();
         $notify[] = ['success', 'Your profile has been updated.'];
         return redirect()->route('donor.profile')->withNotify($notify);

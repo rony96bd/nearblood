@@ -1,7 +1,6 @@
 @extends('donor.layouts.app')
 
 @section('panel')
-
     <div class="row mb-none-30">
         <div class="col-xl-3 col-lg-4 mb-30">
 
@@ -9,26 +8,27 @@
                 <div class="card-body p-0">
                     <div class="d-flex p-3 bg--primary align-items-center">
                         <div class="avatar avatar--lg">
-                            <img src="{{getImage('assets/images/donor/'. $donor->image ?? "", imagePath()['donor']['size'])}}" alt="@lang('Image')">
+                            <img src="{{ getImage('assets/images/donor/' . $donor->image ?? '', imagePath()['donor']['size']) }}"
+                                alt="@lang('Image')">
                         </div>
                         <div class="pl-3">
-                            <h4 class="text--white">{{__($donor->name)}}</h4>
+                            <h4 class="text--white">{{ __($donor->name) }}</h4>
                         </div>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Name')
-                            <span class="font-weight-bold">{{__($donor->name)}}</span>
+                            <span class="font-weight-bold">{{ __($donor->name) }}</span>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Username')
-                            <span  class="font-weight-bold">{{__($donor->username)}}</span>
+                            <span class="font-weight-bold">{{ __($donor->username) }}</span>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             @lang('Email')
-                            <span  class="font-weight-bold">{{$donor->email}}</span>
+                            <span class="font-weight-bold">{{ $donor->email }}</span>
                         </li>
 
                     </ul>
@@ -54,14 +54,18 @@
                                     <div class="image-upload">
                                         <div class="thumb">
                                             <div class="avatar-preview">
-                                                <div class="profilePicPreview" style="background-image: url({{getImage('assets/images/donor/'. $donor->image, imagePath()['donor']['size'])}})">
-                                                    <button type="button" class="remove-image"><i class="fa fa-times"></i></button>
+                                                <div class="profilePicPreview"
+                                                    style="background-image: url({{ getImage('assets/images/donor/' . $donor->image, imagePath()['donor']['size']) }})">
+                                                    <button type="button" class="remove-image"><i
+                                                            class="fa fa-times"></i></button>
                                                 </div>
                                             </div>
                                             <div class="avatar-edit">
-                                                <input type="file" class="profilePicUpload" name="image" id="profilePicUpload1" accept=".png, .jpg, .jpeg">
+                                                <input type="file" class="profilePicUpload" name="image"
+                                                    id="profilePicUpload1" accept=".png, .jpg, .jpeg">
                                                 <label for="profilePicUpload1" class="bg--success">@lang('Upload Image')</label>
-                                                <small class="mt-2 text-facebook">@lang('Supported files'): <b>@lang('jpeg'), @lang('jpg').</b> @lang('Image will be resized into 400x400px') </small>
+                                                <small class="mt-2 text-facebook">@lang('Supported files'): <b>@lang('jpeg'),
+                                                        @lang('jpg').</b> @lang('Image will be resized into 400x400px') </small>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +75,8 @@
                             <div class="col-md-6">
                                 <div class="form-group ">
                                     <label class="form-control-label font-weight-bold">@lang('Name')</label>
-                                    <input class="form-control" type="text" name="name" value="{{ auth()->guard('donor')->user()->name }}" >
+                                    <input class="form-control" type="text" name="name"
+                                        value="{{ auth()->guard('donor')->user()->name }}">
                                 </div>
 
                                 {{-- <div class="form-group">
@@ -81,14 +86,11 @@
 
                                 <div class="form-group">
                                     <label class="form-control-label  font-weight-bold">@lang('Phone')</label>
-                                    <input class="form-control" type="phone" name="phone" value="{{ auth()->guard('donor')->user()->phone }}" >
+                                    <input class="form-control" type="phone" name="phone"
+                                        value="{{ auth()->guard('donor')->user()->phone }}">
                                 </div>
-
-
                             </div>
-
                         </div>
-
                         <div class="form-group">
                             <button type="submit" class="btn btn--primary btn-block btn-lg">@lang('Save Changes')</button>
                         </div>
@@ -100,14 +102,16 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{route('donor.password')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-key"></i>@lang('Password Setting')</a>
+    <a href="{{ route('donor.password') }}" class="btn btn-sm btn--primary box--shadow1 text--small"><i
+            class="fa fa-key"></i>@lang('Password Setting')</a>
 @endpush
 
 <script>
-    (function($){
+    (function($) {
         "use strict";
-        $('select[name=city]').on('change',function() {
-            $('select[name=location]').html('<option value="" selected="" disabled="">@lang('Select One')</option>');
+        $('select[name=city]').on('change', function() {
+            $('select[name=location]').html(
+                '<option value="" selected="" disabled="">@lang('Select One')</option>');
             var locations = $('select[name=city] :selected').data('locations');
             var html = '';
             locations.forEach(function myFunction(item, index) {
@@ -116,5 +120,4 @@
             $('select[name=location]').append(html);
         });
     })(jQuery)
-  </script>
-
+</script>

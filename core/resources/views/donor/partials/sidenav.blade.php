@@ -18,6 +18,13 @@
                         <span class="menu-title">@lang('Dashboard')</span>
                     </a>
                 </li>
+                {{-- <li class="sidebar-menu-item  {{menuActive('donor.city.index')}}">
+                    <a href="{{route('donor.city.index')}}" class="nav-link"
+                       data-default-url="{{ route('donor.city.index') }}">
+                        <i class="menu-icon las la-city"></i>
+                        <span class="menu-title">@lang('Manage City') </span>
+                    </a>
+                </li> --}}
 
 
                 {{-- <li class="sidebar-menu-item  {{menuActive('donor.city.index')}}">
