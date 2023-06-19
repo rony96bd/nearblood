@@ -72,8 +72,8 @@ class DonorController extends Controller
     public function password()
     {
         $pageTitle = 'Password Setting';
-        $admin = Auth::guard('donor')->user();
-        return view('donor.password', compact('pageTitle', 'admin'));
+        $donor = Auth::guard('donor')->user();
+        return view('donor.password', compact('pageTitle', 'donor'));
     }
 
     public function passwordUpdate(Request $request)
