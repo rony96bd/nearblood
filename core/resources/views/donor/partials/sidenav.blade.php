@@ -1,5 +1,5 @@
 <div class="sidebar {{ sidebarVariation()['selector'] }} {{ sidebarVariation()['sidebar'] }} {{ @sidebarVariation()['overlay'] }} {{ @sidebarVariation()['opacity'] }}"
-     {{-- data-background="{{getImage('assets/donor/images/sidebar/2.jpg','400x800')}}"> --}}
+     data-background="{{getImage('assets/admin/images/sidebar/2.jpg','400x800')}}">
     <button class="res-sidebar-close-btn"><i class="las la-times"></i></button>
     <div class="sidebar__inner">
         <div class="sidebar__logo">
@@ -16,6 +16,12 @@
                     <a href="https://nearblood.com/" class="nav-link ">
                         <i class="menu-icon las la-home"></i>
                         <span class="menu-title">@lang('Back to Home')</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu-item {{menuActive('donor.dashboard')}}">
+                    <a href="{{route('donor.dashboard')}}" class="nav-link ">
+                        <i class="menu-icon las la-home"></i>
+                        <span class="menu-title">@lang('Dashboard')</span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item {{menuActive('donor.dashboard')}}">
