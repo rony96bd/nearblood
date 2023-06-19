@@ -76,7 +76,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Full Name</p>
+                      <p class="mb-0 font-weight-bold">Full Name</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{ __($donor->name) }}</p>
@@ -85,7 +85,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Gender</p>
+                      <p class="mb-0 font-weight-bold">Gender</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">@if($donor->gender == 1) @lang('Male') @else @lang('Female') @endif</p>
@@ -94,7 +94,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Date of Birth</p>
+                      <p class="mb-0 font-weight-bold">Date of Birth</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{showDateTime($donor->birth_date, 'd M Y')}}</p>
@@ -103,7 +103,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Age</p>
+                      <p class="mb-0 font-weight-bold">Age</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{Carbon\Carbon::parse($donor->birth_date)->age}} @lang('Years')</p>
@@ -112,7 +112,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Religion</p>
+                      <p class="mb-0 font-weight-bold">Religion</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->religion)}}</p>
@@ -121,7 +121,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Email</p>
+                      <p class="mb-0 font-weight-bold">Email</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->email)}}</p>
@@ -130,7 +130,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Phone</p>
+                      <p class="mb-0 font-weight-bold">Phone</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->phone)}}</p>
@@ -139,7 +139,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Profession</p>
+                      <p class="mb-0 font-weight-bold">Profession</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->profession)}}</p>
@@ -148,7 +148,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">District</p>
+                      <p class="mb-0 font-weight-bold">District</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->city->name)}}</p>
@@ -157,7 +157,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Upazila</p>
+                      <p class="mb-0 font-weight-bold">Upazila</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->location->name)}}</p>
@@ -166,7 +166,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Address</p>
+                      <p class="mb-0 font-weight-bold">Address</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->address)}}</p>
@@ -175,7 +175,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">More details about me</p>
+                      <p class="mb-0 font-weight-bold">Details</p>
                     </div>
                     <div class="col-sm-9">
                       <p class="text-muted mb-0">{{__($donor->details)}}</p>
