@@ -20,14 +20,14 @@
                 </li>
                 <li class="sidebar-menu-item {{menuActive('donor.dashboard')}}">
                     <a href="{{route('donor.dashboard')}}" class="nav-link ">
-                        <i class="menu-icon las la-home"></i>
+                        <i class="menu-icon la la-dashboard"></i>
                         <span class="menu-title">@lang('Dashboard')</span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item {{menuActive('donor.dashboard')}}">
-                    <a href="{{route('donor.dashboard')}}" class="nav-link ">
-                        <i class="menu-icon las la-home"></i>
-                        <span class="menu-title">@lang('Dashboard')</span>
+                    <a href="https://nearblood.com/donor-list" class="nav-link ">
+                        <i class="menu-icon las la-user"></i>
+                        <span class="menu-title">@lang('All Donors')</span>
                     </a>
                 </li>
             </ul>
