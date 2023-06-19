@@ -20,7 +20,7 @@
                                         <div class="thumb">
                                             <div class="avatar-preview">
                                                 <div class="profilePicPreview"
-                                                    style="width: 90%; background-image: url({{ getImage('assets/images/donor/' . $donor->image, imagePath()['donor']['size']) }})">
+                                                    style="background-image: url({{ getImage('assets/images/donor/' . $donor->image, imagePath()['donor']['size']) }})">
                                                     <button type="button" class="remove-image"><i
                                                             class="fa fa-times"></i></button>
                                                 </div>
