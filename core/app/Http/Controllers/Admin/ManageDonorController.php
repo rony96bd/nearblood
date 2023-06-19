@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class ManageDonorController extends Controller
 {
-    
+
     public function index()
     {
         $pageTitle = "Manage Donor List";

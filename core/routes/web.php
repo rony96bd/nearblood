@@ -232,7 +232,7 @@ Route::get('/blog', 'SiteController@blog')->name('blog');
 Route::get('blog/{id}/{slug}', 'SiteController@blogDetails')->name('blog.details');
 Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name('placeholder.image');
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
-Route::get('/', 'SiteController@index')->name('home');  //Using SiteController@index to set Homepage Default.
+Route::get('/', 'SiteController@index')->name('home');  //Using to set Homepage Default.
 Route::get('/apply/donor', 'SiteController@applyDonor')->name('apply.donor');
 Route::post('/apply/donor/store', 'SiteController@applyDonorstore')->name('apply.donor.store');
 Route::get('/menu/{slug}/{id}', 'SiteController@footerMenu')->name('footer.menu');

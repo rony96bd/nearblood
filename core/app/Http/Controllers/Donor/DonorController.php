@@ -38,7 +38,9 @@ class DonorController extends Controller
     {
         $pageTitle = 'Profile';
         $donor = Auth::guard('donor')->user();
-        return view('donor.profile', compact('pageTitle', 'donor'));
+        $cities = City::where('status', 1)->select('id', 'name')->with('location')->get();
+        $bloods = Blood::where('status', 1)->select('id', 'name')->get();
+        return view('donor.profile', compact('pageTitle', 'donor', 'cities', 'bloods'));
     }
 
     public function profileUpdate(Request $request)
@@ -46,6 +48,21 @@ class DonorController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'phone' => 'required',
+            'blood' => 'required|exists:bloods,id',
+            'city' => 'required|exists:cities,id',
+            'location' => 'required|exists:locations,id',
+            'gender' => 'required|in:1,2',
+            'facebook' => 'required',
+            'twitter' => 'required',
+            'linkedinIn' => 'required',
+            'instagram' => 'required',
+            'profession' => 'required|max:80',
+            'religion' => 'required|max:40',
+            'address' => 'required|max:255',
+            'donate' => 'required|integer',
+            'birth_date' => 'required|date',
+            // 'last_donate' => 'required|date',
+            'details' => 'required',
             'image' => ['nullable', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])]
         ]);
         $user = Auth::guard('donor')->user();
@@ -65,6 +82,24 @@ class DonorController extends Controller
 
         $user->name = $request->name;
         $user->phone = $request->phone;
+        $user->blood_id = $request->blood;
+        $user->city_id = $request->city;
+        $user->location_id = $request->location;
+        $user->gender = $request->gender;
+        $socialMedia = [
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
+            'linkedinIn' => $request->linkedinIn,
+            'instagram' => $request->instagram
+        ];
+        $user->socialMedia = $socialMedia;
+        $user->profession = $request->profession;
+        $user->religion = $request->religion;
+        $user->address = $request->address;
+        $user->total_donate = $request->donate;
+        $user->birth_date =  $request->birth_date;
+        $user->last_donate = $request->last_donate;
+        $user->details = $request->details;
         $user->save();
         $notify[] = ['success', 'Your profile has been updated.'];
         return redirect()->route('donor.profile')->withNotify($notify);
