@@ -139,12 +139,12 @@
 
                         <div class="form-group col-lg-6">
                             <label for="date_birth">@lang('Date Of Birth') <sup class="text--danger">*</sup></label>
-                            <input type="date" id="date_birth" name="birth_date" value="{{old('birth_date')}}" data-language="en" placeholder="@lang('Enter Date Of Birth')" class="form--control datepicker-here" maxlength="255" required="">
+                            <input type="text" id="date_birth" name="birth_date" value="{{old('birth_date')}}" data-language="en" placeholder="@lang('Enter Date Of Birth')" class="form--control datepicker-here" maxlength="255" required="">
                         </div>
 
                          <div class="form-group col-lg-6">
                             <label for="last_donate">@lang('Last Donate') <sup class="text--danger">(Optional)</sup></label>
-                            <input type="date" name="last_donate" id="last_donate" value="{{old('donate')}}" data-language="en" placeholder="@lang('Last Blood Donate Date')" class="form--control datepicker-here">
+                            <input type="text" name="last_donate" id="last_donate" value="{{old('donate')}}" data-language="en" placeholder="@lang('Last Blood Donate Date')" class="form--control datepicker-here">
                         </div>
 
                         <div class="form-group col-lg-12">
