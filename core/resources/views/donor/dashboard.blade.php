@@ -88,7 +88,7 @@
                       <p class="mb-0">Gender</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">example@example.com</p>
+                      <p class="text-muted mb-0">@if($donor->gender == 1) @lang('Male') @else @lang('Female') @endif</p>
                     </div>
                   </div>
                   <hr>
@@ -97,7 +97,7 @@
                       <p class="mb-0">Date of Birth</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">(097) 234-5678</p>
+                      <p class="text-muted mb-0">{{showDateTime($donor->birth_date, 'd M Y')}}</p>
                     </div>
                   </div>
                   <hr>
@@ -106,7 +106,7 @@
                       <p class="mb-0">Age</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">(098) 765-4321</p>
+                      <p class="text-muted mb-0">{{Carbon\Carbon::parse($donor->birth_date)->age}} @lang('Years')</p>
                     </div>
                   </div>
                   <hr>
@@ -115,7 +115,7 @@
                       <p class="mb-0">Religion</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted mb-0">{{__($donor->religion)}}</p>
                     </div>
                   </div>
                   <hr>
@@ -124,7 +124,7 @@
                       <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted mb-0">{{__($donor->email)}}</p>
                     </div>
                   </div>
                   <hr>
@@ -133,7 +133,7 @@
                       <p class="mb-0">Phone</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted mb-0">{{__($donor->phone)}}</p>
                     </div>
                   </div>
                   <hr>
@@ -142,7 +142,7 @@
                       <p class="mb-0">Profession</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted mb-0">{{__($donor->profession)}}</p>
                     </div>
                   </div>
                   <hr>
@@ -151,16 +151,16 @@
                       <p class="mb-0">Address</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted mb-0">{{__($donor->address)}}</p>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Message from Me</p>
+                      <p class="mb-0">More details about me</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <p class="text-muted mb-0">{{__($donor->details)}}</p>
                     </div>
                   </div>
                 </div>
