@@ -596,7 +596,7 @@ function imagePath()
     ];
     $data['donor'] = [
         'path' => 'assets/images/donor',
-        'size' => '412x412'
+        'size' => '400x400'
     ];
     $data['image'] = [
         'default' => 'assets/images/default.png',
