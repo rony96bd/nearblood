@@ -121,7 +121,6 @@
 @endsection
 @push('script')
 <script>
-    
     (function($){
         "use strict";
 
@@ -135,9 +134,7 @@
             $('select[name=location_id]').append(html);
         });
 
-    });
-    
-    (jQuery);
+    })(jQuery)
 </script>
 
 @endpush
