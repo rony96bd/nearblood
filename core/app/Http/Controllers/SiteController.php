@@ -55,7 +55,8 @@ class SiteController extends Controller
         $page = Page::where('tempname',$this->activeTemplate)->where('slug',$slug)->firstOrFail();
         $pageTitle = $page->name;
         $sections = $page->secs;
-        return view($this->activeTemplate . 'pages', compact('pageTitle','sections'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'pages', compact('pageTitle','sections', 'don'));
     }
 
     public function donor()
@@ -65,14 +66,16 @@ class SiteController extends Controller
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->with('location')->get();
         $donors = Donor::where('status',1)->with('blood', 'location')->paginate(getPaginate(21));
-        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'cities', 'bloods'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'cities', 'bloods', 'don'));
     }
 
     public function donorDetails($slug, $id)
     {
         $pageTitle = "Donor Details";
         $donor = Donor::where('status',1)->where('id', decrypt($id))->firstOrFail();
-        return view($this->activeTemplate . 'donor_details', compact('pageTitle', 'donor'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'donor_details', compact('pageTitle', 'donor', 'don'));
     }
 
     public function donorSearch(Request $request)
@@ -125,6 +128,7 @@ class SiteController extends Controller
             'message' => $request->message
         ]);
         $notify[] = ['success', 'Send your message to donar'];
+        $don['all'] = Donor::count();
         return back()->withNotify($notify);
     }
 
@@ -137,14 +141,16 @@ class SiteController extends Controller
         $cities = City::where('status', 1)->select('id', 'name')->get();
         $locations = Location::where('status', 1)->select('id', 'name')->get();
         $donors = Donor::where('status',1)->where('blood_id', $blood->id)->with('blood', 'location')->paginate(getPaginate());
-        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'bloods', 'cities', 'locations'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'bloods', 'cities', 'locations', 'don'));
     }
 
     public function contact()
     {
         $pageTitle = "Contact Us";
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','contact')->first();
-        return view($this->activeTemplate . 'contact',compact('pageTitle', 'sections'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'contact',compact('pageTitle', 'sections', 'don'));
     }
 
     public function contactSubmit(Request $request)
@@ -190,21 +196,24 @@ class SiteController extends Controller
         $pageTitle = "Blog";
         $blogs = Frontend::where('data_keys','blog.element')->paginate(9);
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','blog')->first();
-        return view($this->activeTemplate.'blog',compact('blogs','pageTitle', 'sections'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate.'blog',compact('blogs','pageTitle', 'sections', 'don'));
     }
 
     public function blogDetails($id,$slug){
         $blogs = Frontend::where('data_keys','blog.element')->latest()->limit(6)->get();
         $blog = Frontend::where('id',$id)->where('data_keys','blog.element')->firstOrFail();
         $pageTitle = "Blog Details";
-        return view($this->activeTemplate.'blog_details',compact('blog','pageTitle', 'blogs'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate.'blog_details',compact('blog','pageTitle', 'blogs', 'don'));
     }
 
     public function footerMenu($slug, $id)
     {
         $data = Frontend::where('id', $id)->where('data_keys', 'policy_pages.element')->firstOrFail();
         $pageTitle =  $data->data_values->title;
-        return view($this->activeTemplate . 'menu', compact('data', 'pageTitle'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'menu', compact('data', 'pageTitle', 'don'));
     }
 
     public function cookieAccept(){
