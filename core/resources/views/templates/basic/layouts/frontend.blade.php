@@ -75,6 +75,12 @@
         $(function() {
             $("#donorsearch4").select2();
         });
+        $(function() {
+            $("#city").select2();
+        });
+        $(function() {
+            $("#location").select2();
+        });
     </script>
     @stack('script-lib')
     @stack('script')
