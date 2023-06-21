@@ -4682,7 +4682,7 @@ blockquote {
 
 .donor-search-form__btn {
     width: 100px;
-    height: 65px;
+    height: 40px;
 }
 
 @media (max-width: 991px) {

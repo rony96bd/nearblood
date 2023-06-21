@@ -22,6 +22,11 @@
     <link
         href="{{ asset($activeTemplateTrue . 'frontend/css/color.php') }}?color={{ $general->base_color }}&secondColor={{ $general->secondary_color }}"
         rel="stylesheet" />
+    <style>
+    .select2-container {
+        height: 28px;
+    }
+    </style>
 </head>
 
 <body>
