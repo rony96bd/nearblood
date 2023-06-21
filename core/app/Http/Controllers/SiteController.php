@@ -106,7 +106,8 @@ class SiteController extends Controller
             $donors = $donors->where('gender', $request->gender);
         }
         $donors = $donors->with('blood', 'location')->paginate(getPaginate());
-        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'cities', 'locations', 'bloods', 'locationId', 'cityId', 'bloodId', 'gender'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'cities', 'locations', 'bloods', 'locationId', 'cityId', 'bloodId', 'gender', 'don'));
     }
 
     public function contactWithDonor(Request $request)
