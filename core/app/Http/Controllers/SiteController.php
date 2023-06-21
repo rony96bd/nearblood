@@ -43,7 +43,8 @@ class SiteController extends Controller
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->get();
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections', 'bloods', 'cities'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'home', compact('pageTitle','sections', 'bloods', 'cities', 'don'));
     }
 
     public function pages($slug)
