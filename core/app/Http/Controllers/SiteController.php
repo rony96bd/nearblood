@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Advertisement;
 use App\Models\Blood;
 use App\Models\City;
@@ -22,13 +23,15 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->activeTemplate = activeTemplate();
     }
 
-    public function index(){
-        $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
-        if($count == 0){
+    public function index()
+    {
+        $count = Page::where('tempname', $this->activeTemplate)->where('slug', 'home')->count();
+        if ($count == 0) {
             $page = new Page();
             $page->tempname = $this->activeTemplate;
             $page->name = 'HOME';
@@ -40,23 +43,23 @@ class SiteController extends Controller
             session()->put('reference', $reference);
         }
         $pageTitle = 'Home';
-        $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
+        $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'home')->first();
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->get();
         $don['all'] = Donor::count();
         $allcity = City::count();
         $alllocations = Location::count();
         $allblood = Blood::count();
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections', 'bloods', 'cities', 'don', 'allcity', 'alllocations', 'allblood'));
+        return view($this->activeTemplate . 'home', compact('pageTitle', 'sections', 'bloods', 'cities', 'don', 'allcity', 'alllocations', 'allblood'));
     }
 
     public function pages($slug)
     {
-        $page = Page::where('tempname',$this->activeTemplate)->where('slug',$slug)->firstOrFail();
+        $page = Page::where('tempname', $this->activeTemplate)->where('slug', $slug)->firstOrFail();
         $pageTitle = $page->name;
         $sections = $page->secs;
         $don['all'] = Donor::count();
-        return view($this->activeTemplate . 'pages', compact('pageTitle','sections', 'don'));
+        return view($this->activeTemplate . 'pages', compact('pageTitle', 'sections', 'don'));
     }
 
     public function donor()
@@ -65,15 +68,15 @@ class SiteController extends Controller
         $emptyMessage = "No data found";
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->with('location')->get();
-        $donors = Donor::where('status',1)->with('blood', 'location')->paginate(getPaginate(21));
+        $donors = Donor::where('status', 1)->with('blood', 'location')->paginate(getPaginate(21));
         $don['all'] = Donor::count();
-        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'cities', 'bloods', 'don'));
+        return view($this->activeTemplate . 'donor', compact('pageTitle', 'emptyMessage', 'donors', 'cities', 'bloods', 'don'));
     }
 
     public function donorDetails($slug, $id)
     {
         $pageTitle = "Donor Details";
-        $donor = Donor::where('status',1)->where('id', decrypt($id))->firstOrFail();
+        $donor = Donor::where('status', 1)->where('id', decrypt($id))->firstOrFail();
         $don['all'] = Donor::count();
         return view($this->activeTemplate . 'donor_details', compact('pageTitle', 'donor', 'don'));
     }
@@ -96,21 +99,21 @@ class SiteController extends Controller
         $bloodId = $request->blood_id;
         $gender = $request->gender;
         $donors = Donor::where('status', 1);
-        if($request->blood_id){
+        if ($request->blood_id) {
             $donors = $donors->where('blood_id', $request->blood_id);
         }
-        if($request->city_id){
+        if ($request->city_id) {
             $donors = $donors->where('city_id', $request->city_id);
         }
-        if($request->location_id){
+        if ($request->location_id) {
             $donors = $donors->where('location_id', $request->location_id);
         }
-        if($request->gender){
+        if ($request->gender) {
             $donors = $donors->where('gender', $request->gender);
         }
         $donors = $donors->with('blood', 'location')->paginate(getPaginate());
         $don['all'] = Donor::count();
-        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'cities', 'locations', 'bloods', 'locationId', 'cityId', 'bloodId', 'gender', 'don'));
+        return view($this->activeTemplate . 'donor', compact('pageTitle', 'emptyMessage', 'donors', 'cities', 'locations', 'bloods', 'locationId', 'cityId', 'bloodId', 'gender', 'don'));
     }
 
     public function contactWithDonor(Request $request)
@@ -122,7 +125,7 @@ class SiteController extends Controller
             'message' => 'required|max:500'
         ]);
         $donor = Donor::findOrFail($request->donor_id);
-        notify($donor, 'DONOR_CONTACT',[
+        notify($donor, 'DONOR_CONTACT', [
             'name' => $request->name,
             'email' => $request->email,
             'message' => $request->message
@@ -135,22 +138,22 @@ class SiteController extends Controller
     public function bloodGroup($slug, $id)
     {
         $blood = Blood::where('status', 1)->where('id', decrypt($id))->firstOrFail();
-        $pageTitle = $blood->name." Blood Group Donor";
+        $pageTitle = $blood->name . " Blood Group Donor";
         $emptyMessage = "No data found";
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->get();
         $locations = Location::where('status', 1)->select('id', 'name')->get();
-        $donors = Donor::where('status',1)->where('blood_id', $blood->id)->with('blood', 'location')->paginate(getPaginate());
+        $donors = Donor::where('status', 1)->where('blood_id', $blood->id)->with('blood', 'location')->paginate(getPaginate());
         $don['all'] = Donor::count();
-        return view($this->activeTemplate . 'donor', compact('pageTitle','emptyMessage', 'donors', 'bloods', 'cities', 'locations', 'don'));
+        return view($this->activeTemplate . 'donor', compact('pageTitle', 'emptyMessage', 'donors', 'bloods', 'cities', 'locations', 'don'));
     }
 
     public function contact()
     {
         $pageTitle = "Contact Us";
-        $sections = Page::where('tempname',$this->activeTemplate)->where('slug','contact')->first();
+        $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'contact')->first();
         $don['all'] = Donor::count();
-        return view($this->activeTemplate . 'contact',compact('pageTitle', 'sections', 'don'));
+        return view($this->activeTemplate . 'contact', compact('pageTitle', 'sections', 'don'));
     }
 
     public function contactSubmit(Request $request)
@@ -192,20 +195,22 @@ class SiteController extends Controller
         return redirect()->back();
     }
 
-    public function blog(){
+    public function blog()
+    {
         $pageTitle = "Blog";
-        $blogs = Frontend::where('data_keys','blog.element')->paginate(9);
-        $sections = Page::where('tempname',$this->activeTemplate)->where('slug','blog')->first();
+        $blogs = Frontend::where('data_keys', 'blog.element')->paginate(9);
+        $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'blog')->first();
         $don['all'] = Donor::count();
-        return view($this->activeTemplate.'blog',compact('blogs','pageTitle', 'sections', 'don'));
+        return view($this->activeTemplate . 'blog', compact('blogs', 'pageTitle', 'sections', 'don'));
     }
 
-    public function blogDetails($id,$slug){
-        $blogs = Frontend::where('data_keys','blog.element')->latest()->limit(6)->get();
-        $blog = Frontend::where('id',$id)->where('data_keys','blog.element')->firstOrFail();
+    public function blogDetails($id, $slug)
+    {
+        $blogs = Frontend::where('data_keys', 'blog.element')->latest()->limit(6)->get();
+        $blog = Frontend::where('id', $id)->where('data_keys', 'blog.element')->firstOrFail();
         $pageTitle = "Blog Details";
         $don['all'] = Donor::count();
-        return view($this->activeTemplate.'blog_details',compact('blog','pageTitle', 'blogs', 'don'));
+        return view($this->activeTemplate . 'blog_details', compact('blog', 'pageTitle', 'blogs', 'don'));
     }
 
     public function footerMenu($slug, $id)
@@ -216,22 +221,24 @@ class SiteController extends Controller
         return view($this->activeTemplate . 'menu', compact('data', 'pageTitle', 'don'));
     }
 
-    public function cookieAccept(){
+    public function cookieAccept()
+    {
         // session()->put('cookie_accepted',true);
         // $notify = 'Cookie accepted successfully';
         // return response()->json($notify);
     }
 
-    public function placeholderImage($size = null){
-        $imgWidth = explode('x',$size)[0];
-        $imgHeight = explode('x',$size)[1];
+    public function placeholderImage($size = null)
+    {
+        $imgWidth = explode('x', $size)[0];
+        $imgHeight = explode('x', $size)[1];
         $text = $imgWidth . '×' . $imgHeight;
         $fontFile = realpath('assets/font') . DIRECTORY_SEPARATOR . 'RobotoMono-Regular.ttf';
         $fontSize = round(($imgWidth - 50) / 8);
         if ($fontSize <= 9) {
             $fontSize = 9;
         }
-        if($imgHeight < 100 && $fontSize > 30){
+        if ($imgHeight < 100 && $fontSize > 30) {
             $fontSize = 30;
         }
 
@@ -255,7 +262,8 @@ class SiteController extends Controller
         $pageTitle = "Apply as a Donor";
         $cities = City::where('status', 1)->select('id', 'name')->with('location')->get();
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
-        return view($this->activeTemplate.'apply_donor',compact('pageTitle', 'bloods', 'cities'));
+        $don['all'] = Donor::count();
+        return view($this->activeTemplate . 'apply_donor', compact('pageTitle', 'bloods', 'cities', 'don'));
     }
 
     public function applyDonorstore(Request $request)
@@ -326,7 +334,7 @@ class SiteController extends Controller
     public function adclicked($id)
     {
         $ads = Advertisement::where('id', decrypt($id))->firstOrFail();
-        $ads->click +=1;
+        $ads->click += 1;
         $ads->save();
         return redirect($ads->redirect_url);
     }
@@ -336,7 +344,7 @@ class SiteController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json($validator->errors());
         }
         $if_exist = Subscriber::where('email', $request->email)->first();
@@ -345,9 +353,8 @@ class SiteController extends Controller
                 'email' => $request->email
             ]);
             return response()->json(['success' => 'Subscribed Successfully']);
-        }else {
+        } else {
             return response()->json(['error' => 'Already Subscribed']);
         }
     }
-
 }
