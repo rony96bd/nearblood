@@ -5,8 +5,8 @@
     <div class="container">
         <form method="GET" action="{{route('donor.search')}}" class="donor-search-form">
             <div class="donor-search-form__field">
-                <label>@lang('Blood Group')</label>
-                <select class="select" name="blood_id">
+                <div style="height: 25px;"><label>@lang('Blood Group')</label></div>
+                <select class="select" id="donorsearch" name="blood_id">
                     <option value="" selected="" disabled="">@lang('Select Group')</option>
                     @foreach($bloods as $blood)
                         <option value="{{$blood->id}}" @if(@$bloodId == $blood->id) selected @endif>{{__($blood->name)}}</option>
@@ -15,8 +15,8 @@
             </div>
 
             <div class="donor-search-form__field">
-                <label>@lang('City')</label>
-                <select class="select" name="city_id">
+                <div style="height: 25px;"><label>@lang('City')</label></div>
+                <select class="select" id="donorsearch2" name="city_id">
                     <option value="" disabled="" selected="">@lang('Select One')</option>
                     @foreach($cities as $city)
                         <option value="{{$city->id}}" data-locations="{{json_encode($city->location)}}">{{__($city->name)}}</option>
@@ -25,22 +25,22 @@
             </div>
 
             <div class="donor-search-form__field">
-                <label>@lang('Location')</label>
-                <select class="select" name="location_id">
+                <div style="height: 25px;"><label>@lang('Location')</label></div>
+                <select class="select" id="donorsearch3" name="location_id">
                     <option value="" selected="" disabled="">@lang('Select One')</option>
                 </select>
             </div>
 
             <div class="donor-search-form__field">
-                <label>@lang('Donor Type')</label>
-                <select class="select" name="gender">
+                <div style="height: 25px;"><label>@lang('Donor Type')</label></div>
+                <div><select class="select" id="donorsearch4" name="gender">
                     <option value="" selected="" disabled="">@lang('Select One')</option>
                     <option value="1" @if(@$gender == 1) selected @endif>@lang('Male')</option>
                     <option value="2" @if(@$gender == 2) selected @endif>@lang('Female')</option>
-                </select>
+                </select></div>
             </div>
 
-            <div class="donor-search-form__btn">
+            <div class="donor-search-form__btn text-center">
                 <button type="submit" class="btn btn-md btn--base">@lang('Search')</button>
             </div>
         </form>
