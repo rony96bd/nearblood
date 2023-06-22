@@ -35,6 +35,7 @@
         .select2-container--default .select2-selection--single .select2-selection__arrow {
             height: 50px;
         }
+
         .select2-container {
             height: 50px;
         }
@@ -76,16 +77,24 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(function() {
-            $("#donorsearch").select2();
+            $("#donorsearch").select2({
+                placeholder: "Select Blood Grup",
+            });
         });
         $(function() {
-            $("#donorsearch2").select2();
+            $("#donorsearch2").select2({
+                placeholder: "Select City",
+            });
         });
         $(function() {
-            $("#donorsearch3").select2();
+            $("#donorsearch3").select2({
+                placeholder: "Select Location",
+            });
         });
         $(function() {
-            $("#donorsearch4").select2();
+            $("#donorsearch4").select2({
+                placeholder: "Select Donor Type",
+            });
         });
         $(function() {
             $("#city").select2();
