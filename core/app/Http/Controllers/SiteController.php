@@ -68,7 +68,7 @@ class SiteController extends Controller
         $emptyMessage = "No data found";
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->with('location')->get();
-        $donors = Donor::where('status', 1)->with('blood', 'location')->paginate(getPaginate(21));
+        $donors = Donor::where('status', 1)->with('blood', 'location')->paginate(getPaginate(100));
         $don['all'] = Donor::count();
         return view($this->activeTemplate . 'donor', compact('pageTitle', 'emptyMessage', 'donors', 'cities', 'bloods', 'don'));
     }
