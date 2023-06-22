@@ -33,7 +33,8 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="phone">@lang('Phone') <sup class="text--danger">*</sup></label>
-                            <input type="text" name="phone" id="phone" value="{{old('phone')}}" placeholder="@lang('Enter Phone')" class="form--control" maxlength="40" required="">
+                            <input type="text" name="phone" id="phone" value="{{old('phone')}}" placeholder="@lang('Enter Phone (01XXXXXXXXX)')" class="form--control" maxlength="40" required="">
+                            <span id="errorMsg" style="display:none; color: red;">Please Enter Valid Phone Number</span>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="city">@lang('City') <sup class="text--danger">*</sup></label>

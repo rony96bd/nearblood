@@ -87,7 +87,7 @@
 					</li>
 					<li>
 						<span class="caption">@lang('Phone')</span>
-						<span class="value">{{__($donor->phone)}} <a href="https://wa.me/{{__($donor->phone)}}">  Click to chat on WhatsApp</a></span>
+						<span class="value">{{__($donor->phone)}} <a href="https://wa.me/+88{{__($donor->phone)}}">  Click to chat on WhatsApp</a></span>
 					</li>
 					<li>
 						<span class="caption">@lang('Profession')</span>

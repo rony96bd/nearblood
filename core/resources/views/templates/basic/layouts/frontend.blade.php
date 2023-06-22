@@ -102,6 +102,14 @@
         $(function() {
             $("#location").select2();
         });
+
+        $("#phone").keyup(function() {
+            if ($('#phone').val() > 9999999999) {
+                $('#errorMsg').show();
+            } else {
+                $('#errorMsg').hide();
+            }
+        });
     </script>
     @stack('script-lib')
     @stack('script')
