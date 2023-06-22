@@ -28,7 +28,7 @@
                     <div class="overview-item__icon">
                         <i class="las la-hands-helping"></i>
                     </div>
-                    <h6 class="overview-item__caption">{{ $alllocations }} District</h6>
+                    <h6 class="overview-item__caption">{{ $alllocations }} Upazila</h6>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
@@ -36,7 +36,7 @@
                     <div class="overview-item__icon">
                         <i class="las la-map"></i>
                     </div>
-                    <h6 class="overview-item__caption">{{ $allcity }} Upazila</h6>
+                    <h6 class="overview-item__caption">{{ $allcity }} District</h6>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
