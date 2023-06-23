@@ -6,12 +6,15 @@ Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 });
 
+Auth::routes(['verify' => true]);
+
 Route::prefix('ticket')->group(function () {
     Route::post('/create', 'TicketController@storeSupportTicket')->name('ticket.store');
     Route::get('/view/{ticket}', 'TicketController@viewTicket')->name('ticket.view');
     Route::post('/reply/{ticket}', 'TicketController@replyTicket')->name('ticket.reply');
     Route::get('/download/{ticket}', 'TicketController@ticketDownload')->name('ticket.download');
 });
+Route::get('email/verify', 'VerificationController@show')->name('verification.notice');
 
 Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
     Route::namespace('Auth')->group(function () {
@@ -25,7 +28,7 @@ Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
         Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
         Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
     });
-    Route::middleware('donor')->group(function () {
+    Route::group(['middleware' => ['donor']], function () {
         Route::get('dashboard', 'DonorController@dashboard')->name('dashboard');
         Route::get('profile', 'DonorController@profile')->name('profile');
         Route::post('profile', 'DonorController@profileUpdate')->name('profile.update');

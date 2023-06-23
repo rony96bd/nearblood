@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Donor extends Authenticatable
+class Donor extends Authenticatable implements MustVerifyEmail
+
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
     protected $guard = 'donor';
 
@@ -21,7 +24,8 @@ class Donor extends Authenticatable
     protected $dates = ['birth_date', 'last_donate'];
 
     protected $casts = [
-        'socialMedia' => 'object'
+        'socialMedia' => 'object',
+        'email_verified_at' => 'datetime',
     ];
 
 
