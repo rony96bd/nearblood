@@ -14,7 +14,9 @@ Route::prefix('ticket')->group(function () {
     Route::post('/reply/{ticket}', 'TicketController@replyTicket')->name('ticket.reply');
     Route::get('/download/{ticket}', 'TicketController@ticketDownload')->name('ticket.download');
 });
-Route::get('email/verify', 'VerificationController@show')->name('verification.notice');
+    Route::get('email/verify', 'VerificationController@show')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'VerificationController@verify')->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', 'VerificationController@resend')->name('verification.resend');
 
 Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
     Route::namespace('Auth')->group(function () {
