@@ -28,7 +28,7 @@ Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
         Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
         Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
     });
-    Route::group(['middleware' => ['donor']], function () {
+    Route::group(['middleware' => ['donor', 'verified']], function () {
         Route::get('dashboard', 'DonorController@dashboard')->name('dashboard');
         Route::get('profile', 'DonorController@profile')->name('profile');
         Route::post('profile', 'DonorController@profileUpdate')->name('profile.update');
