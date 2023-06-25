@@ -282,7 +282,7 @@ class SiteController extends Controller
             'profession' => 'required|max:80',
             'donate' => 'required|integer',
             'address' => 'required|max:255',
-            'details' => 'required',
+            // 'details' => 'required',
             'birth_date' => 'required|date',
             // 'last_donate' => 'required|date',
             // 'facebook' => 'required',
