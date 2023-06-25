@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label for="facebook" class="form-control-label font-weight-bold">@lang('Facebook Url')</label>
                                     <div class="input-group mb-3">
-                                          <input type="text" id="facebook" class="form-control form-control-lg" value="{{@$donor->socialMedia->facebook}}" placeholder="@lang('Enter Facebook Url')" name="facebook" aria-label="Recipient's username" aria-describedby="basic-addon2" required="">
+                                          <input type="text" id="facebook" class="form-control form-control-lg" value="{{@$donor->socialMedia->facebook}}" placeholder="@lang('Enter Facebook Url')" name="facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                           <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i class="lab la-facebook-f"></i></span>
                                           </div>
@@ -88,7 +88,7 @@
                                 <div class="form-group">
                                     <label for="twitter" class="form-control-label font-weight-bold">@lang('Twitter Url')</label>
                                     <div class="input-group mb-3">
-                                          <input type="text" id="twitter" value="{{@$donor->socialMedia->twitter}}" class="form-control form-control-lg" placeholder="@lang('Enter Twitter Url')" name="twitter" aria-label="Recipient's username" aria-describedby="basic-addon2" required="">
+                                          <input type="text" id="twitter" value="{{@$donor->socialMedia->twitter}}" class="form-control form-control-lg" placeholder="@lang('Enter Twitter Url')" name="twitter" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                           <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i class="lab la-twitter"></i></span>
                                           </div>
@@ -100,7 +100,7 @@
                                 <div class="form-group">
                                     <label for="linkedinIn" class="form-control-label font-weight-bold">@lang('LinkedinIn Url')</label>
                                     <div class="input-group mb-3">
-                                          <input type="text" id="linkedinIn" value="{{@$donor->socialMedia->linkedinIn}}" class="form-control form-control-lg" placeholder="@lang('Enter LinkedinIn Url')" name="linkedinIn" aria-label="Recipient's username" aria-describedby="basic-addon2" required="">
+                                          <input type="text" id="linkedinIn" value="{{@$donor->socialMedia->linkedinIn}}" class="form-control form-control-lg" placeholder="@lang('Enter LinkedinIn Url')" name="linkedinIn" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                           <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i class="lab la-linkedin-in"></i></span>
                                           </div>
@@ -112,7 +112,7 @@
                                 <div class="form-group">
                                     <label for="instagram" class="form-control-label font-weight-bold">@lang('Instagram Url')</label>
                                     <div class="input-group mb-3">
-                                          <input type="text" id="instagram"  value="{{@$donor->socialMedia->instagram}}" class="form-control form-control-lg" placeholder="@lang('Enter Instagram Url')" name="instagram" aria-label="Recipient's username" aria-describedby="basic-addon2" required="">
+                                          <input type="text" id="instagram"  value="{{@$donor->socialMedia->instagram}}" class="form-control form-control-lg" placeholder="@lang('Enter Instagram Url')" name="instagram" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                           <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i class="lab la-instagram"></i></span>
                                           </div>
@@ -182,7 +182,7 @@
                          <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="last_donate" class="font-weight-bold">@lang('Last Donate')</label>
-                                <input type="text" name="last_donate" id="last_donate" value="{{showDateTime($donor->last_donate, 'Y-m-d')}}" data-language="en" class="form-control form-control-lg datepicker-here" placeholder="@lang('Enter Last Donate Date')" required="">
+                                <input type="text" name="last_donate" id="last_donate" value="{{showDateTime($donor->last_donate, 'Y-m-d')}}" data-language="en" class="form-control form-control-lg datepicker-here" placeholder="@lang('Enter Last Donate Date')">
                             </div>
                         </div>
                     </div>
