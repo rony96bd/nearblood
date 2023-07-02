@@ -6,7 +6,6 @@ Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 });
 
-Auth::routes(['verify' => true]);
 
 Route::prefix('ticket')->group(function () {
     Route::post('/create', 'TicketController@storeSupportTicket')->name('ticket.store');
@@ -30,7 +29,7 @@ Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
         Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.form');
         Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
     });
-    Route::group(['middleware' => ['donor', 'verified']], function () {
+    Route::group(['middleware' => ['donor']], function () {
         Route::get('dashboard', 'DonorController@dashboard')->name('dashboard');
         Route::get('profile', 'DonorController@profile')->name('profile');
         Route::post('profile', 'DonorController@profileUpdate')->name('profile.update');
