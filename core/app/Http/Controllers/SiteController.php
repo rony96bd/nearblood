@@ -19,6 +19,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\MailController;
+
+
 
 
 class SiteController extends Controller
@@ -341,7 +345,7 @@ class SiteController extends Controller
 
     public function verifyDonor()
     {
-        $verification_code = \Illuminate\Http\Request::get('code');
+        $verification_code = \Illuminate\Support\Facades\Request::get('code');
         $donor = Donor::where(['verification_code' => $verification_code])->first();
         if ($donor != null) {
             $donor->is_verified = 1;
