@@ -244,9 +244,4 @@ Route::get('/menu/{slug}/{id}', 'SiteController@footerMenu')->name('footer.menu'
 Route::get('/add/{id}', 'SiteController@adclicked')->name('add.clicked');
 Route::post('/subscribe', 'SiteController@subscribe')->name('subscribe');
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
