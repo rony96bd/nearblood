@@ -7,6 +7,7 @@ use App\Models\AdminPasswordReset;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
@@ -76,17 +77,23 @@ class ForgotPasswordController extends Controller
 
         $userIpInfo = getIpInfo();
         $userBrowser = osBrowser();
-        notify($user, 'PASS_RESET_CODE', [
-            'code' => $code,
-            'operating_system' => $userBrowser['os_platform'],
-            'browser' => $userBrowser['browser'],
-            'ip' => $userIpInfo['ip'],
-            'time' => $userIpInfo['time']
-        ]);
-
+        try {
+            notify($user, 'PASS_RESET_CODE', [
+                'code' => $code,
+                'operating_system' => $userBrowser['os_platform'],
+                'browser' => $userBrowser['browser'],
+                'ip' => $userIpInfo['ip'],
+                'time' => $userIpInfo['time']
+            ]);
+            Log::info('Password reset code sent to - ' . $user->email);
+        } catch (\Exception $exp) {
+            Log::error($exp->getMessage());
+            $notify[] = ['error', 'Something went wrong'];
+            return back()->withNotify($notify);
+        }
         $pageTitle = 'Account Recovery';
         $notify[] = ['success', 'Password reset email sent successfully'];
-        return view('admin.auth.passwords.code_verify', compact('pageTitle', 'notify'))->withNotify($notify);
+        return view('admin.auth.passwords.code_verify', compact('pageTitle', 'notify'));
     }
 
     public function verifyCode(Request $request)
