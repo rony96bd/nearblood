@@ -83,7 +83,9 @@ class ForgotPasswordController extends Controller
                 'operating_system' => $userBrowser['os_platform'],
                 'browser' => $userBrowser['browser'],
                 'ip' => $userIpInfo['ip'],
-                'time' => $userIpInfo['time']
+                'time' => $userIpInfo['time'],
+                'name' => $user->username,
+                'email' => $user->email,
             ]);
             Log::info('Password reset code sent to - ' . $user->email);
         } catch (\Exception $exp) {
