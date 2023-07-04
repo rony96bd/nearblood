@@ -246,4 +246,4 @@ Route::post('/subscribe', 'SiteController@subscribe')->name('subscribe');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/verify', 'SiteController@verifyDonor')->name('verify.donor')
+Route::get('/verify', 'SiteController@verifyDonor')->name('verify.donor');

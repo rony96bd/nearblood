@@ -1,3 +1,4 @@
+
 <h2>Hello {{$email_data['name']}}</h2>
 
 <h3>Welcome to Nearblood.com</h3>
