@@ -422,7 +422,7 @@ function getImage($image,$size = null)
 function notify($user, $type, $shortCodes = null)
 {
     sendEmail($user, $type, $shortCodes);
-    sendSms($user, $type, $shortCodes);
+    //sendSms($user, $type, $shortCodes);
 }
 
 
