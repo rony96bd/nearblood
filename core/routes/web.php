@@ -6,7 +6,7 @@ Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::prefix('ticket')->group(function () {
     Route::post('/create', 'TicketController@storeSupportTicket')->name('ticket.store');
