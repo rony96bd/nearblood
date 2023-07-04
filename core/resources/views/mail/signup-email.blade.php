@@ -7,7 +7,8 @@
 Please click the link below to verify your email and active your account.
 <br/>
 <br/>
-<a href="https://nearblood.com/donor/verify?code={{$email_data['verification_code']}}">Click Here</a>
+
+<a href="https://nearblood.com/donor/verify?code={{$email_data['verification_code']}}"><div>Click Here<div></a>
 <br/>
 <br/>
 Thanks
