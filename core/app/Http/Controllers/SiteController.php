@@ -339,6 +339,19 @@ class SiteController extends Controller
         // return back()->withNotify($notify);
     }
 
+    public function verifyDonor(Request $request)
+    {
+        $verification_code = \Illuminate\Support\Facades\Request::get('code');
+        $donor = Donor::where(['verification_code' => $verification_code])->first();
+        if ($donor != null) {
+            $donor->is_verified = 1;
+            $donor->save();
+            return redirect()->route('donor')->with(session()->flash('alert-success', 'Your account is verified. Please login!'));
+        }
+
+        return redirect()->route('donor')->with(session()->flash('alert-danger', 'Invalid verification code!'));
+    }
+
     public function adclicked($id)
     {
         $ads = Advertisement::where('id', decrypt($id))->firstOrFail();

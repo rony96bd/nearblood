@@ -115,4 +115,9 @@ class LoginController extends Controller
         $pageTitle = 'Account Recovery';
         return view('donor.reset', compact('pageTitle'));
     }
+
+    protected function credentials(Request $request)
+    {
+        return array_merge($request->only($this->username(), 'password'), ['is_verified' => 1]);
+    }
 }
