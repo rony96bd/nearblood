@@ -305,6 +305,7 @@ class SiteController extends Controller
         $donor->blood_id = $request->blood;
         $donor->location_id = $request->location;
         $donor->gender = $request->gender;
+        $donor->status = '2';
         $donor->religion = $request->religion;
         $donor->profession = $request->profession;
         $donor->address = $request->address;
@@ -349,6 +350,7 @@ class SiteController extends Controller
         $donor = Donor::where(['verification_code' => $verification_code])->first();
         if ($donor != null) {
             $donor->is_verified = 1;
+            $donor->status = 0;
             $donor->save();
             return redirect()->route('donor.login')->with(session()->flash('alert-success', 'Your account is verified. Please login!'));
         }
