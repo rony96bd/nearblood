@@ -350,10 +350,10 @@ class SiteController extends Controller
         if ($donor != null) {
             $donor->is_verified = 1;
             $donor->save();
-            return redirect()->route('home')->with(session()->flash('alert-success', 'Your account is verified. Please login!'));
+            return redirect()->route('donor.login')->with(session()->flash('alert-success', 'Your account is verified. Please login!'));
         }
 
-        return redirect()->route('home')->with(session()->flash('alert-danger', 'Invalid verification code!'));
+        return redirect()->route('donor.login')->with(session()->flash('alert-danger', 'Invalid verification code!'));
     }
 
     public function adclicked($id)
