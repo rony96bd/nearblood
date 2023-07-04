@@ -86,7 +86,7 @@ class ForgotPasswordController extends Controller
 
         $pageTitle = 'Account Recovery';
         $notify[] = ['success', 'Password reset email sent successfully'];
-        return view('admin.auth.passwords.code_verify', compact('pageTitle', 'notify'));
+        return view('admin.auth.passwords.code_verify', compact('pageTitle', 'notify'))->withNotify($notify);
     }
 
     public function verifyCode(Request $request)
