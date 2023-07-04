@@ -244,6 +244,6 @@ Route::get('/menu/{slug}/{id}', 'SiteController@footerMenu')->name('footer.menu'
 Route::get('/add/{id}', 'SiteController@adclicked')->name('add.clicked');
 Route::post('/subscribe', 'SiteController@subscribe')->name('subscribe');
 
-Route::get('/home', 'SiteController@index')->name('home');
+// Route::get('/home', 'SiteController@index')->name('home');
 
 Route::get('/donor/verify', 'SiteController@verifyDonor')->name('verify.donor');
