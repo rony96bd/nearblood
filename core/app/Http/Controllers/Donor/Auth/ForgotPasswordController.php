@@ -82,9 +82,10 @@ class ForgotPasswordController extends Controller
             'operating_system' => $userBrowser['os_platform'],
             'browser' => $userBrowser['browser'],
             'ip' => $userIpInfo['ip'],
-            'time' => $userIpInfo['time']
+            'time' => $userIpInfo['time'],
+            'name' => $user->name,
+            'email' => $user->email,
         ]);
-
         $pageTitle = 'Account Recovery';
         $notify[] = ['success', 'Password reset email sent successfully'];
         return view('donor.auth.passwords.code_verify', compact('pageTitle', 'notify'));

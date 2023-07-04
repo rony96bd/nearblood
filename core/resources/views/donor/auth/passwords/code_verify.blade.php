@@ -7,6 +7,7 @@
                 <form action="{{ route('donor.password.verify.code') }}" method="POST" class="cmn-form mt-30">
                     @csrf
                     <div class="form-group">
+                        <p class="text-success font-weight-bold">A Verification Code Send to Your Email.</p>
                         <label>@lang('Verification Code')</label>
                         <input type="text" name="code" id="code" class="form-control">
                     </div>
