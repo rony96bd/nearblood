@@ -315,6 +315,7 @@ class SiteController extends Controller
             'instagram' => $request->instagram ?? "",
         ];
         $donor->socialMedia = $socialMedia;
+        $donor->verification_code = shal(time());
         $path = imagePath()['donor']['path'];
         $size = imagePath()['donor']['size'];
         if ($request->hasFile('image')) {
@@ -327,7 +328,14 @@ class SiteController extends Controller
             $donor->image = $filename;
         }
         $donor->save();
-        $notify[] = ['success', 'Your Requested Submitted'];
+
+        if($donor != null){
+            //send email
+            //show a message
+        }
+        //show error message
+
+        $notify[] = ['success', 'Your Requested Submitted and Send Verification Link to your Email. Pls click email link to active your account.'];
         return back()->withNotify($notify);
     }
 
