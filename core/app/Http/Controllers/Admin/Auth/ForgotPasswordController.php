@@ -60,7 +60,7 @@ class ForgotPasswordController extends Controller
         $this->validate($request, [
             'email' => 'required|email',
         ]);
-        
+
         $user = Admin::where('email', $request->email)->first();
         if (!$user) {
             return back()->withErrors(['Email Not Available']);
@@ -76,7 +76,7 @@ class ForgotPasswordController extends Controller
 
         $userIpInfo = getIpInfo();
         $userBrowser = osBrowser();
-        sendEmail($user, 'PASS_RESET_CODE', [
+        notify($user, 'PASS_RESET_CODE', [
             'code' => $code,
             'operating_system' => $userBrowser['os_platform'],
             'browser' => $userBrowser['browser'],

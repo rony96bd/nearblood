@@ -23,7 +23,7 @@ Route::namespace('Donor')->prefix('donor')->name('donor.')->group(function () {
         Route::get('/', 'LoginController@showLoginForm')->name('login');
         Route::post('/', 'LoginController@login')->name('login');
         Route::get('logout', 'LoginController@logout')->name('logout');
-        // Admin Password Reset
+        // Donor Password Reset
         Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
         Route::post('password/reset', 'ForgotPasswordController@sendResetCodeEmail');
         Route::post('password/verify-code', 'ForgotPasswordController@verifyCode')->name('password.verify.code');
