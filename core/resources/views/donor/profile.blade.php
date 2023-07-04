@@ -105,7 +105,7 @@
                                         <input type="text" id="facebook" class="form-control form-control-lg"
                                             value="{{ @$donor->socialMedia->facebook }}" placeholder="@lang('Enter Facebook Url')"
                                             name="facebook" aria-label="Recipient's username"
-                                            aria-describedby="basic-addon2" required="">
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i
                                                     class="lab la-facebook-f"></i></span>
@@ -122,7 +122,7 @@
                                         <input type="text" id="twitter" value="{{ @$donor->socialMedia->twitter }}"
                                             class="form-control form-control-lg" placeholder="@lang('Enter Twitter Url')"
                                             name="twitter" aria-label="Recipient's username"
-                                            aria-describedby="basic-addon2" required="">
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i
                                                     class="lab la-twitter"></i></span>
@@ -140,7 +140,7 @@
                                             value="{{ @$donor->socialMedia->linkedinIn }}"
                                             class="form-control form-control-lg" placeholder="@lang('Enter LinkedinIn Url')"
                                             name="linkedinIn" aria-label="Recipient's username"
-                                            aria-describedby="basic-addon2" required="">
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i
                                                     class="lab la-linkedin-in"></i></span>
@@ -158,7 +158,7 @@
                                             value="{{ @$donor->socialMedia->instagram }}"
                                             class="form-control form-control-lg" placeholder="@lang('Enter Instagram Url')"
                                             name="instagram" aria-label="Recipient's username"
-                                            aria-describedby="basic-addon2" required="">
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <span class="input-group-text" id="basic-addon2"><i
                                                     class="lab la-instagram"></i></span>
