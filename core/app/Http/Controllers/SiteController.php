@@ -315,7 +315,7 @@ class SiteController extends Controller
             'instagram' => $request->instagram ?? "",
         ];
         $donor->socialMedia = $socialMedia;
-        $donor->verification_code = shal(time());
+        $donor->verification_code = sha1(time());
         $path = imagePath()['donor']['path'];
         $size = imagePath()['donor']['size'];
         if ($request->hasFile('image')) {
@@ -330,13 +330,13 @@ class SiteController extends Controller
         $donor->save();
 
         if($donor != null){
-            //send email
-            //show a message
+            MailController::sendSignupEmail($donor->name, $donor->email, $donor->verification_code);
+            return redirect()->back()->with(session()->flash('alert-success', 'Your Requested Submitted and Send Verification Link to your Email. Pls click email link to active your account.'));
         }
-        //show error message
+        return redirect()->back()->with(session()->flash('alert-danger', 'Something Wrong'));
 
-        $notify[] = ['success', 'Your Requested Submitted and Send Verification Link to your Email. Pls click email link to active your account.'];
-        return back()->withNotify($notify);
+        // $notify[] = ['success', 'Your Requested Submitted and Send Verification Link to your Email. Pls click email link to active your account.'];
+        // return back()->withNotify($notify);
     }
 
     public function adclicked($id)
