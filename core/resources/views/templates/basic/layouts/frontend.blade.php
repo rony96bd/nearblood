@@ -39,6 +39,7 @@
         .select2-container {
             height: 50px;
         }
+
     </style>
 </head>
 

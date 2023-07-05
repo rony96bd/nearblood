@@ -22,11 +22,12 @@
         </div>
     </div>
 
-    <div class="header__bottom"> 
+    <nav id="navbar_top" class="navbar-expand-lg navbar-dark" style="background-color: #17173A;">
+    <div class="header__bottom">
         <div class="container">
             <nav class="navbar navbar-expand-xl p-0 align-items-center">
                 <a class="site-logo site-title" href="{{route('home')}}">
-                    <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="@lang('logo')"> 
+                    <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="@lang('logo')">
                 </a>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="menu-toggle"></span>
@@ -45,4 +46,5 @@
             </nav>
         </div>
     </div>
+    </nav>
 </header>
