@@ -134,7 +134,7 @@
         $(document).ready(function() {
             let nextPageUrl = '{{ $donors->nextPageUrl() }}';
             $(window).scroll(function() {
-                if ($(window).scrollTop() + $(window).height() <= $(document).height()) {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 600) {
                     if (nextPageUrl) {
                         loadMoreDonors();
                     }
