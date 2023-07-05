@@ -29,6 +29,9 @@
                 <a class="site-logo site-title" href="{{route('home')}}">
                     <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="@lang('logo')">
                 </a>
+                <button onclick="window.location.href='https://nearblood.com/apply/donor';" class="navbar-toggler ms-auto text-white" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    Apply As Donors
+                </button>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="menu-toggle"></span>
                 </button>
