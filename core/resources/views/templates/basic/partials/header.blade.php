@@ -30,7 +30,7 @@
                     <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="@lang('logo')">
                 </a>
                 <button onclick="window.location.href='https://nearblood.com/apply/donor';" class="navbar-toggler ms-auto text-white" style="font-size: 15px;border: solid #FB3640 1px;border-radius: 5px;background-color: #FB3640;padding: 5px 3px 5px 3px;" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    Apply As Donors
+                    Apply As Donor
                 </button>
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="menu-toggle"></span>
