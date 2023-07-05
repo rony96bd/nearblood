@@ -44,9 +44,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 text-lg-end text-center">
+                    {{-- <div class="col-lg-3 text-lg-end text-center">
                         <a href="{{url($footer->data_values->btn_url)}}" class="btn btn--base">{{__($footer->data_values->btn_name)}}</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
