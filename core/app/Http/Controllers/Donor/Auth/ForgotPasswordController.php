@@ -68,12 +68,12 @@ class ForgotPasswordController extends Controller
         }
 
         $code = verificationCode(6);
-        $adminPasswordReset = new DonorPasswordReset();
-        $adminPasswordReset->email = $user->email;
-        $adminPasswordReset->token = $code;
-        $adminPasswordReset->status = 0;
-        $adminPasswordReset->created_at = date("Y-m-d h:i:s");
-        $adminPasswordReset->save();
+        $donorPasswordReset = new DonorPasswordReset();
+        $donorPasswordReset->email = $user->email;
+        $donorPasswordReset->token = $code;
+        $donorPasswordReset->status = 0;
+        $donorPasswordReset->created_at = date("Y-m-d h:i:s");
+        $donorPasswordReset->save();
 
         $userIpInfo = getIpInfo();
         $userBrowser = osBrowser();

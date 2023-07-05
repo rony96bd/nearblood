@@ -4,7 +4,7 @@
         <div class="form-area bg_img" data-background="{{asset('assets/admin/images/1.jpg')}}">
             <div class="form-wrapper">
                 <h4 class="logo-text mb-15"><strong>@lang('Reset Password')</strong></h4>
-                <form action="{{ route('admin.password.change') }}" method="POST" class="cmn-form mt-30">
+                <form action="{{ route('donor.password.change') }}" method="POST" class="cmn-form mt-30">
                     @csrf
 
                     <input type="hidden" name="email" value="{{ $email }}">
