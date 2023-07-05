@@ -1,77 +1,84 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate . 'layouts.frontend')
 @section('content')
-@include($activeTemplate . 'partials.breadcrumb')
-<div class="donor-search-area">
-    <div class="container">
-        <form method="GET" action="{{route('donor.search')}}" class="donor-search-form">
-            <div class="donor-search-form__field">
-                <div style="height: 25px;"><label>@lang('Blood Group')</label></div>
-                <select class="select" id="donorsearch" name="blood_id">
-                    <option value="" selected="" disabled="">@lang('Select Group')</option>
-                    @foreach($bloods as $blood)
-                        <option value="{{$blood->id}}" @if(@$bloodId == $blood->id) selected @endif>{{__($blood->name)}}</option>
-                    @endforeach
-                </select>
-            </div>
+    @include($activeTemplate . 'partials.breadcrumb')
+    <div class="donor-search-area">
+        <div class="container">
+            <form method="GET" action="{{ route('donor.search') }}" class="donor-search-form">
+                <div class="donor-search-form__field">
+                    <div style="height: 25px;"><label>@lang('Blood Group')</label></div>
+                    <select class="select" id="donorsearch" name="blood_id">
+                        <option value="" selected="" disabled="">@lang('Select Group')</option>
+                        @foreach ($bloods as $blood)
+                            <option value="{{ $blood->id }}" @if (@$bloodId == $blood->id) selected @endif>
+                                {{ __($blood->name) }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div class="donor-search-form__field">
-                <div style="height: 25px;"><label>@lang('City')</label></div>
-                <select class="select" id="donorsearch2" name="city_id">
-                    <option value="" disabled="" selected="">@lang('Select One')</option>
-                    @foreach($cities as $city)
-                        <option value="{{$city->id}}" data-locations="{{json_encode($city->location)}}">{{__($city->name)}}</option>
-                    @endforeach
-                </select>
-            </div>
+                <div class="donor-search-form__field">
+                    <div style="height: 25px;"><label>@lang('City')</label></div>
+                    <select class="select" id="donorsearch2" name="city_id">
+                        <option value="" disabled="" selected="">@lang('Select One')</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city->id }}" data-locations="{{ json_encode($city->location) }}">
+                                {{ __($city->name) }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div class="donor-search-form__field">
-                <div style="height: 25px;"><label>@lang('Location')</label></div>
-                <select class="select" id="donorsearch3" name="location_id">
-                    <option value="" selected="" disabled="">@lang('Select One')</option>
-                </select>
-            </div>
+                <div class="donor-search-form__field">
+                    <div style="height: 25px;"><label>@lang('Location')</label></div>
+                    <select class="select" id="donorsearch3" name="location_id">
+                        <option value="" selected="" disabled="">@lang('Select One')</option>
+                    </select>
+                </div>
 
-            <div class="donor-search-form__field">
-                <div style="height: 25px;"><label>@lang('Donor Type')</label></div>
-                <div><select class="select" id="donorsearch4" name="gender">
-                    <option value="" selected="" disabled="">@lang('Select One')</option>
-                    <option value="1" @if(@$gender == 1) selected @endif>@lang('Male')</option>
-                    <option value="2" @if(@$gender == 2) selected @endif>@lang('Female')</option>
-                </select></div>
-            </div>
+                <div class="donor-search-form__field">
+                    <div style="height: 25px;"><label>@lang('Donor Type')</label></div>
+                    <div><select class="select" id="donorsearch4" name="gender">
+                            <option value="" selected="" disabled="">@lang('Select One')</option>
+                            <option value="1" @if (@$gender == 1) selected @endif>@lang('Male')
+                            </option>
+                            <option value="2" @if (@$gender == 2) selected @endif>@lang('Female')
+                            </option>
+                        </select></div>
+                </div>
 
-            <div class="donor-search-form__btn text-center">
-                <button type="submit" class="btn btn-md btn--base">@lang('Search')</button>
-            </div>
-        </form>
+                <div class="donor-search-form__btn text-center">
+                    <button type="submit" class="btn btn-md btn--base">@lang('Search')</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<section class="pt-50 pb-50 shade--bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-2 col-lg-3 col-md-4 d-md-block d-none">
-                @php
-                    echo advertisements('220x474')
-                @endphp
+    <section class="pt-50 pb-50 shade--bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 d-md-block d-none">
+                    @php
+                        echo advertisements('220x474');
+                    @endphp
 
-                @php
-                    echo advertisements('220x303')
-                @endphp
+                    @php
+                        echo advertisements('220x303');
+                    @endphp
 
-                @php
-                    echo advertisements('220x474')
-                @endphp
+                    @php
+                        echo advertisements('220x474');
+                    @endphp
 
-                @php
-                    echo advertisements('220x474')
-                @endphp
-            </div>
-            <div class="col-xl-8 col-lg-9 col-md-8">
-                <div id="posts-container">
-                @include('templates.basic.donorlist')
-                {{-- <div class="row gy-4">
-                    @forelse($donors as $donor)
+                    @php
+                        echo advertisements('220x474');
+                    @endphp
+                </div>
+                <div class="col-xl-8 col-lg-9 col-md-8">
+
+
+                    <div class="row gy-4" id="posts-container">
+
+                        @include('templates.basic.donorload')
+
+                        {{-- @forelse($donors as $donor)
                         <div class="col-lg-6 col-md-12 col-sm-6">
                             <div class="donor-item has--link">
                                 <a href="{{route('donor.details', [slug($donor->name), encrypt($donor->id)])}}" class="item--link"></a>
@@ -94,50 +101,79 @@
                         </div>
                     @empty
                         <h3 class="text-center">{{$emptyMessage}}</h3>
-                    @endforelse
-                </div> --}}
-                {{-- <nav class="mt-4 pagination-md">
+                    @endforelse --}}
+                    </div>
+                    {{-- <nav class="mt-4 pagination-md">
                 {{$donors->links()}}
                 </nav> --}}
+                    {{-- </div> --}}
+                </div>
+                <div class="col-xl-2 d-xl-block d-none">
+                    @php
+                        echo advertisements('220x474');
+                    @endphp
+
+                    @php
+                        echo advertisements('220x315');
+                    @endphp
+
+                    @php
+                        echo advertisements('220x474');
+                    @endphp
+
+                    @php
+                        echo advertisements('220x474');
+                    @endphp
                 </div>
             </div>
-            <div class="col-xl-2 d-xl-block d-none">
-                @php
-                    echo advertisements('220x474')
-                @endphp
-
-                @php
-                    echo advertisements('220x315')
-                @endphp
-
-                @php
-                    echo advertisements('220x474')
-                @endphp
-
-                @php
-                    echo advertisements('220x474')
-                @endphp
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection
 @push('script')
-<script>
-    (function($){
-        "use strict";
-
-        $('select[name=city_id]').on('change',function() {
-            $('select[name=location_id]').html('<option value="" selected="" disabled="">@lang('Select One')</option>');
-            var locations = $('select[name=city_id] :selected').data('locations');
-            var html = '';
-            locations.forEach(function myFunction(item, index) {
-                html += `<option value="${item.id}">${item.name}</option>`
+    <script>
+        $(document).ready(function() {
+            let nextPageUrl = '{{ $donors->nextPageUrl() }}';
+            $(window).scroll(function() {
+                if ($(window).scrollTop() + $(window).height() <= $(document).height()) {
+                    if (nextPageUrl) {
+                        loadMoreDonors();
+                    }
+                }
             });
-            $('select[name=location_id]').append(html);
+
+            function loadMoreDonors() {
+                $.ajax({
+                    url: nextPageUrl,
+                    type: 'get',
+                    beforeSend: function() {
+                        nextPageUrl = '';
+                    },
+                    success: function(data) {
+                        nextPageUrl = data.nextPageUrl;
+                        $('#posts-container').append(data.view);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error loading more posts:", error);
+                    }
+                });
+            }
         });
 
-    })(jQuery)
-</script>
 
+        (function($) {
+            "use strict";
+
+            $('select[name=city_id]').on('change', function() {
+                $('select[name=location_id]').html(
+                    '<option value="" selected="" disabled="">@lang('Select One')</option>');
+                var locations = $('select[name=city_id] :selected').data('locations');
+                var html = '';
+                locations.forEach(function myFunction(item, index) {
+                    html += `<option value="${item.id}">${item.name}</option>`
+                });
+                $('select[name=location_id]').append(html);
+            });
+
+        })(jQuery)
+    </script>
 @endpush

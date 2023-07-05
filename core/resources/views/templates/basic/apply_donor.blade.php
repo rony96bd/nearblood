@@ -158,7 +158,7 @@
                         </div>
 
                         <div class="form-group col-lg-12">
-                            <label for="about_details">@lang('About You') <sup class="text--danger">Optional</sup></label>
+                            <label for="about_details">@lang('About You') <sup class="text--danger">*</sup></label>
                             <textarea name="details" id="about_details" placeholder="@lang('Enter Details')" class="form--control">{{old('details')}}</textarea>
                         </div>
                         <div class="col-lg-12">
