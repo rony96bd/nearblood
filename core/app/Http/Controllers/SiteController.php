@@ -21,6 +21,8 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\Response;
+
 
 
 
@@ -66,13 +68,17 @@ class SiteController extends Controller
         return view($this->activeTemplate . 'pages', compact('pageTitle', 'sections', 'don'));
     }
 
-    public function donor()
+    public function donor(Request $request)
     {
         $pageTitle = "All Donor";
         $emptyMessage = "No data found";
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->with('location')->get();
-        $donors = Donor::where('status', 1)->with('blood', 'location')->paginate(getPaginate(100));
+        $donors = Donor::where('status', 1)->with('blood', 'location')->paginate(getPaginate(10));
+        if ($request->ajax()) {
+            $view = view('templates.basic.donorload', compact('donors'))->render();
+            return Response::json(['view' => $view, 'nextPageUrl' => $donors->nextPageUrl()]);
+        }
         $don['all'] = Donor::count();
         return view($this->activeTemplate . 'donor', compact('pageTitle', 'emptyMessage', 'donors', 'cities', 'bloods', 'don'));
     }

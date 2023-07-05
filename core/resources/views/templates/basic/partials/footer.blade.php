@@ -113,6 +113,33 @@
 
 @push('script')
 <script>
+$(document).ready(function () {
+    let nextPageUrl = '{{ $donors->nextPageUrl() }}';
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+            if (nextPageUrl) {
+                loadMoreDonors();
+            }
+        }
+    });
+    function loadMoreDonors() {
+        $.ajax({
+            url: nextPageUrl,
+            type: 'get',
+            beforeSend: function () {
+                nextPageUrl = '';
+            },
+            success: function (data) {
+                nextPageUrl = data.nextPageUrl;
+                $('#posts-container').append(data.view);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error loading more posts:", error);
+            }
+        });
+    }
+});
+
     document.addEventListener("DOMContentLoaded", function(){
   window.addEventListener('scroll', function() {
       if (window.scrollY > 50) {

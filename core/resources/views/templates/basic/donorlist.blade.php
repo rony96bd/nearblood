@@ -23,7 +23,7 @@
                     @empty
                         <h3 class="text-center">{{$emptyMessage}}</h3>
                     @endforelse
-                </div>  
-                <nav class="mt-4 pagination-md">
+                </div>
+                {{-- <nav class="mt-4 pagination-md">
                 {{$donors->links()}}
-                </nav>
+                </nav> --}}

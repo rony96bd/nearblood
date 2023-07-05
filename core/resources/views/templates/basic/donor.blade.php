@@ -68,7 +68,9 @@
                 @endphp
             </div>
             <div class="col-xl-8 col-lg-9 col-md-8">
-                <div class="row gy-4">
+                <div id="posts-container">
+                @include('templates.basic.donorlist')
+                {{-- <div class="row gy-4">
                     @forelse($donors as $donor)
                         <div class="col-lg-6 col-md-12 col-sm-6">
                             <div class="donor-item has--link">
@@ -93,10 +95,11 @@
                     @empty
                         <h3 class="text-center">{{$emptyMessage}}</h3>
                     @endforelse
-                </div>
-                <nav class="mt-4 pagination-md">
+                </div> --}}
+                {{-- <nav class="mt-4 pagination-md">
                 {{$donors->links()}}
-                </nav>
+                </nav> --}}
+                </div>
             </div>
             <div class="col-xl-2 d-xl-block d-none">
                 @php
