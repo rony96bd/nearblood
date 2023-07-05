@@ -84,6 +84,7 @@ class ForgotPasswordController extends Controller
             'ip' => $userIpInfo['ip'],
             'time' => $userIpInfo['time'],
             'name' => $user->name,
+            'username' => $user->username,
             'email' => $user->email,
         ]);
         $pageTitle = 'Account Recovery';
