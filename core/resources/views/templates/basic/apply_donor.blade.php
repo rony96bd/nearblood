@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="form-group col-lg-6">
-                            <label for="file">@lang('Image') <sup class="text--danger">*</sup></label>
+                            <label for="file">@lang('Profile Photo') <sup class="text--danger">*</sup></label>
                             <input type="file" id="file" name="image" class="form--control custom-file-upload" required="">
                         </div>
 
