@@ -133,12 +133,12 @@
                         </div>
 
                          <div class="form-group col-lg-6">
-                            <label for="profession">@lang('Profession') <sup class="text--danger">Optional</sup></label>
+                            <label for="profession">@lang('Profession') <sup class="text--danger">(Optional)</sup></label>
                             <input type="text" name="profession" id="profession" value="{{old('profession')}}" placeholder="@lang('Enter Profession')" class="form--control" maxlength="80">
                         </div>
 
                          <div class="form-group col-lg-6">
-                            <label for="donate">@lang('Total Donate') <sup class="text--danger">Optional</sup></label>
+                            <label for="donate">@lang('Total Donate') <sup class="text--danger">(Optional)</sup></label>
                             <input type="number" name="donate" id="donate" value="{{old('donate')}}" placeholder="@lang('Enter total blood donate')" class="form--control">
                         </div>
 
@@ -158,7 +158,7 @@
                         </div>
 
                         <div class="form-group col-lg-12">
-                            <label for="about_details">@lang('About You') <sup class="text--danger">Optional</sup></label>
+                            <label for="about_details">@lang('About You') <sup class="text--danger">(Optional)</sup></label>
                             <textarea name="details" id="about_details" placeholder="@lang('Enter Details')" class="form--control">{{old('details')}}</textarea>
                         </div>
                         <div class="col-lg-12">
