@@ -51,7 +51,7 @@
                             @foreach ($pages as $k => $data)
                                 <li><a href="{{ route('pages', [$data->slug]) }}">{{ __($data->name) }}</a></li>
                             @endforeach
-                            <li><a href="#">Donor Login</a></li>
+                            <li><a href="{{ route('donor.login') }}">Donor Login</a></li>
                         </ul>
 
                         <div class="nav-right">
