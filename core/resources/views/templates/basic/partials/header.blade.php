@@ -57,9 +57,7 @@
                             @else
                                 <li><a href="{{ route('donor.login') }}">Donor Login</a></li>
                             @endif
-
                         </ul>
-
                         <div class="nav-right">
                             <a href="{{ route('apply.donor') }}"
                                 class="btn btn-md btn--base d-flex align-items-center"><i
