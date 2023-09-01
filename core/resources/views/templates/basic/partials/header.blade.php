@@ -31,7 +31,8 @@
             <div class="container">
                 <nav class="navbar navbar-expand-xl p-0 align-items-center">
                     <a class="site-logo site-title" href="{{ route('home') }}">
-                        <img src="{{ getImage(imagePath()['logoIcon']['path'] . '/logo.png') }}" alt="@lang('logo')">
+                        <img src="{{ getImage(imagePath()['logoIcon']['path'] . '/logo.png') }}"
+                            alt="@lang('logo')">
                     </a>
                     <button onclick="window.location.href='https://nearblood.com/apply/donor';"
                         class="navbar-toggler ms-auto text-white"
@@ -51,7 +52,12 @@
                             @foreach ($pages as $k => $data)
                                 <li><a href="{{ route('pages', [$data->slug]) }}">{{ __($data->name) }}</a></li>
                             @endforeach
-                            <li><a href="{{ route('donor.login') }}">Donor Login</a></li>
+                            @if (auth()->guard('donor')->check())
+                                <li><a href="{{ route('donor.dashboard') }}">Donor Dashboard</a></li>
+                            @else
+                                <li><a href="{{ route('donor.login') }}">Donor Login</a></li>
+                            @endif
+
                         </ul>
 
                         <div class="nav-right">
