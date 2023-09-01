@@ -40,8 +40,8 @@
                         <li><a href="{{route('home')}}">@lang('Home')</a></li>
                          @foreach($pages as $k => $data)
                             <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
-                            <li>Extra menu</li>
                         @endforeach
+                        <li>Extra menu</li>
                     </ul>
 
                     <div class="nav-right">
