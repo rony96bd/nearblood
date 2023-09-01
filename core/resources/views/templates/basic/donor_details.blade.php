@@ -108,12 +108,9 @@
                                         href="https://wa.me/+88{{ __($donor->phone) }}"> Click to chat on
                                         WhatsApp</a></span>
                             @else
-                                <span class="value">01xxxxxxxxx <a href="https://nearblood.com/apply/donor"> Click to signup
-                                        or
-                                        login</a></span>
+                                <span class="value">01xxxxxxxxx <a href="https://nearblood.com/apply/donor"> See Phone Number? Please Signup and Login</a></span>
                             @endif
                         </li>
-
 
                         <li>
                             <span class="caption">@lang('Profession')</span>
