@@ -99,11 +99,14 @@
                             <span class="caption">@lang('Email')</span>
                             <span class="value">{{ __($donor->email) }}</span>
                         </li>
-                        @if (Auth::check())
+                        @if (auth()->guard('donor')->user()->check())
                             <p>User is login.</p>
                         @else
                             <p>User is not login.</p>
                         @endif
+                        @auth
+                            <p>User is login.</p>
+                        @endauth
 
                         <li>
 
