@@ -100,19 +100,16 @@
                             <span class="value">{{ __($donor->email) }}</span>
                         </li>
                         @if (auth()->guard('donor')->check())
-                            <p>User is login.</p>
+                        <span class="caption">@lang('Phone')</span>
+                        <span class="value">{{ __($donor->phone) }} <a
+                            href="https://wa.me/+88{{ __($donor->phone) }}"> Click to chat on WhatsApp</a></span>
                         @else
-                            <p>User is not login.</p>
+                        <span class="value">01xxxxxxxxx<a
+                            href="https://nearblood.com/apply/donor"> Click to signup and login</a></span>
                         @endif
                         @auth
                             <p>User is login.</p>
                         @endauth
-
-                        <li>
-
-                            <span class="value">{{ __($donor->phone) }} <a
-                                    href="https://wa.me/+88{{ __($donor->phone) }}"> Click to chat on WhatsApp</a></span>
-                        </li>
                         <li>
                             <span class="caption">@lang('Profession')</span>
                             <span class="value">{{ __($donor->profession) }}</span>
