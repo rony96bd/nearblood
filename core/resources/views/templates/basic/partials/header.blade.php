@@ -29,7 +29,6 @@
                 <a class="site-logo site-title" href="{{route('home')}}">
                     <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="@lang('logo')">
                 </a>
-hello
                 <button onclick="window.location.href='https://nearblood.com/apply/donor';" class="navbar-toggler ms-auto text-white" style="font-size: 15px;border: solid #FB3640 1px;border-radius: 5px;background-color: #FB3640;padding: 5px 3px 5px 3px;" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     Apply As Donor
                 </button>
@@ -41,6 +40,7 @@ hello
                         <li><a href="{{route('home')}}">@lang('Home')</a></li>
                          @foreach($pages as $k => $data)
                             <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                            <li>Extra menu</li>
                         @endforeach
                     </ul>
 
