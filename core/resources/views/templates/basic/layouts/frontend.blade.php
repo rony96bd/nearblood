@@ -64,7 +64,6 @@
         </div>
     </div>
     @include($activeTemplate . 'partials.header')
-    --hello--
     <div class="main-wrapper">
         @yield('content')
     </div>

@@ -3,7 +3,7 @@
 @php
     $banner = getContent('banner.content', true);
 @endphp
-
+--hello--
 <section class="hero bg_img" style="background-image: url({{getImage('assets/images/frontend/banner/'. @$banner->data_values->background_image, '1920x1280')}});">
     <div class="container">
         <div class="row justify-content-center">
