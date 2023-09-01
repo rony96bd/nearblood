@@ -39,7 +39,6 @@
         .select2-container {
             height: 50px;
         }
-
     </style>
 </head>
 
@@ -65,6 +64,7 @@
         </div>
     </div>
     @include($activeTemplate . 'partials.header')
+    --hello--
     <div class="main-wrapper">
         @yield('content')
     </div>
@@ -113,14 +113,17 @@
         });
     </script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J3K5M9KEW4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3K5M9KEW4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-J3K5M9KEW4');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J3K5M9KEW4');
+    </script>
     @stack('script-lib')
     @stack('script')
     @include('partials.plugins')
