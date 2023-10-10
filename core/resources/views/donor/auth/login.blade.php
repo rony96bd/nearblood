@@ -36,7 +36,10 @@
                                 class="las la-sign-in-alt"></i></button>
                     </div>
                 </form>
+                <span class="bnfont">একাউন্ট নেই? <a style="font-size: 16px;" href="{{ Route('apply.donor') }}"><span
+                            style="color:#00B074">নতুন একাউন্ট তৈরি করুন</span></a></span>
             </div>
+
         </div><!-- login-area end -->
     </div>
 @endsection
