@@ -16,9 +16,9 @@
                 <form action="{{ route('donor.login') }}" method="POST" class="cmn-form mt-30">
                     @csrf
                     <div class="form-group">
-                        <label for="email">@lang('Username')</label>
-                        <input type="text" name="username" class="form-control b-radius--capsule" id="username"
-                            value="{{ old('username') }}" placeholder="@lang('Enter your username')">
+                        <label for="email">@lang('Phone')</label>
+                        <input type="text" name="phone" class="form-control b-radius--capsule" id="username"
+                            value="{{ old('phone') }}" placeholder="@lang('Enter your Phone Number')">
                         <i class="las la-user input-icon"></i>
                     </div>
                     <div class="form-group">
