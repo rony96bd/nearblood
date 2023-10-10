@@ -319,6 +319,7 @@ class SiteController extends Controller
         $donor->total_donate = $request->donate;
         $donor->birth_date =  $request->birth_date;
         $donor->last_donate = $request->last_donate;
+        $donor->is_verified = '1';
         $socialMedia = [
             'facebook' => $request->facebook ?? "",
             'twitter' => $request->twitter ?? "",
@@ -340,10 +341,10 @@ class SiteController extends Controller
         }
         $donor->save();
 
-        if($donor != null){
-            MailController::sendSignupEmail($donor->name, $donor->email, $donor->verification_code);
-            return redirect()->back()->with(session()->flash('alert-success', 'Your Application is Submitted and Send Verification Link to your Email. Pls click email link to active your account.'));
-        }
+        // if($donor != null){
+        //     MailController::sendSignupEmail($donor->name, $donor->email, $donor->verification_code);
+        //     return redirect()->back()->with(session()->flash('alert-success', 'Your Application is Submitted and Send Verification Link to your Email. Pls click email link to active your account.'));
+        // }
         return redirect()->back()->with(session()->flash('alert-danger', 'Something Wrong'));
 
         // $notify[] = ['success', 'Your Requested Submitted and Send Verification Link to your Email. Pls click email link to active your account.'];
