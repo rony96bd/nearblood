@@ -299,7 +299,7 @@ class SiteController extends Controller
             // 'twitter' => 'required',
             // 'linkedinIn' => 'required',
             // 'instagram' => 'required',
-            // 'image' => ['required', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
+            'image' => ['image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
         ]);
         $donor = new Donor();
         $donor->name = $request->name;
