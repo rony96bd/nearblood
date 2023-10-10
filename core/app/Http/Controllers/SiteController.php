@@ -299,7 +299,7 @@ class SiteController extends Controller
             // 'twitter' => 'required',
             // 'linkedinIn' => 'required',
             // 'instagram' => 'required',
-            'image' => ['required', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
+            // 'image' => ['required', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
         ]);
         $donor = new Donor();
         $donor->name = $request->name;
@@ -311,7 +311,7 @@ class SiteController extends Controller
         $donor->blood_id = $request->blood;
         $donor->location_id = $request->location;
         $donor->gender = $request->gender;
-        $donor->status = '2';
+        $donor->status = '1';
         $donor->religion = $request->religion;
         $donor->profession = $request->profession;
         $donor->address = $request->address;
