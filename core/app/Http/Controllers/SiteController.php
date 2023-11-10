@@ -208,7 +208,7 @@ class SiteController extends Controller
     public function blog()
     {
         $pageTitle = "Blog";
-        $blogs = Frontend::where('data_keys', 'blog.element')->paginate(9);
+        $blogs = Frontend::where('data_keys', 'blog.element')->orderBy('id', 'desc')->paginate(9);
         $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'blog')->first();
         $don['all'] = Donor::count();
         return view($this->activeTemplate . 'blog', compact('blogs', 'pageTitle', 'sections', 'don'));
