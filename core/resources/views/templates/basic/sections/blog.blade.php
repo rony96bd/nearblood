@@ -31,4 +31,6 @@
             @endforeach
         </div>
     </div>
+    <div style="width: 100%; padding-top: 20px" class="text-center"><span><a href="{{ route('blog') }}"
+        class="custom-btn2" style="">সকল পোস্ট</a></span></div>
 </section>
