@@ -32,5 +32,11 @@
         </div>
     </div>
     <div style="width: 100%; padding-top: 20px" class="text-center"><span><a href="{{ route('blog') }}"
-        class="custom-btn2" style="">সকল পোস্ট</a></span></div>
+        class="custom-btn2" style="
+        background: #FB3640;
+        border-radius: 5px;
+        padding: 4px 10px 3px 10px;
+        color: white;
+        font-weight: bold;
+    ">সকল পোস্ট</a></span></div>
 </section>
