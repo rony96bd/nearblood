@@ -153,7 +153,7 @@ class SiteController extends Controller
         $bloods = Blood::where('status', 1)->select('id', 'name')->get();
         $cities = City::where('status', 1)->select('id', 'name')->get();
         $locations = Location::where('status', 1)->select('id', 'name')->get();
-        $donors = Donor::where('status', 1)->where('blood_id', $blood->id)->with('blood', 'location')->paginate(getPaginate());
+        $donors = Donor::where('status', 1)->where('blood_id', $blood->id)->with('blood', 'location')->orderBy('id', 'DESC')->paginate(getPaginate());
         $don['all'] = Donor::count();
         return view($this->activeTemplate . 'donor', compact('pageTitle', 'emptyMessage', 'donors', 'bloods', 'cities', 'locations', 'don'));
     }
