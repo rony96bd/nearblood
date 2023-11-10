@@ -1,6 +1,6 @@
 @php
     $blog = getContent('blog.content', true);
-    $blogElements = getContent('blog.element', false, true);
+    $blogElements = getContent('blog.element', false, 3, true);
 @endphp
 <section class="pt-100 pb-100">
     <div class="container">
