@@ -1,6 +1,6 @@
 @php
     $donor = getContent('latest_donor.content', true);
-    $donors = App\Models\Donor::where('status', 1)->orderBy('id', 'DESC')->with('blood')->limit(10)->get();
+    $donors = App\Models\Donor::where('status', 1)->orderBy('id', 'ASC')->with('blood')->limit(10)->get();
 @endphp
 
 <section class="pt-100 pb-100 border-top  position-relative z-index-2 overflow-hidden">
@@ -37,4 +37,3 @@
         </div>
     </div>
 </section>
-   
