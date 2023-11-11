@@ -345,10 +345,10 @@ class SiteController extends Controller
         //     MailController::sendSignupEmail($donor->name, $donor->email, $donor->verification_code);
         //     return redirect()->back()->with(session()->flash('alert-success', 'Your Application is Submitted and Send Verification Link to your Email. Pls click email link to active your account.'));
         // }
-        return redirect()->back()->with(session()->flash('alert-danger', 'Something Wrong'));
+        // return redirect()->back()->with(session()->flash('alert-danger', 'Something Wrong'));
 
-        // $notify[] = ['success', 'Your Requested Submitted and Send Verification Link to your Email. Pls click email link to active your account.'];
-        // return back()->withNotify($notify);
+        $notify[] = ['success', 'Your Requested Submitted '];
+        return back()->withNotify($notify);
     }
 
     public function verifyDonor()
